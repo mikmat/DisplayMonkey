@@ -140,7 +140,7 @@ DM.Canvas = Class.create({
 	        segs.style.backgroundImage = "url('getImage.ashx?content=" + this.backImage + "')";
 	    }
 
-	    if (this.backColor != '') {
+	    if (this.backColor !== '') {
 	        body.style.backgroundColor = this.backColor;
 	        segs.style.backgroundColor = this.backColor;
 	        scr.style.backgroundColor = this.backColor;
@@ -157,13 +157,13 @@ DM.Canvas = Class.create({
 	            _canvas.fullPanel = new DM.FullScreenPanel({
 	                panelId: pi,
 	                container: e.id,
-	                fadeLength: fl,
+	                fadeLength: fl
 	            });
 	        } else {
 	            _canvas.panels.push(new DM.Panel({
 	                panelId: pi,
 	                container: e.id,
-	                fadeLength: fl,
+	                fadeLength: fl
 	            }));
 	        }
 	    });

@@ -26,6 +26,7 @@ DM.Memo = Class.create(DM.FrameBase, {
         this.paused = false;
         this.div.select('.subject')[0].update(data.Subject);
         this.div.select('.body')[0].update(data.Body);
+        this.div.select('.dateCreated2')[0].update(data.DateCreated2); //MM 2019-11-21
 
         this.timer = setInterval(this._callBack.bind(this), this.tick * 1000);
         this.ready.bind(this).delay(0);

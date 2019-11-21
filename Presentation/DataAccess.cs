@@ -238,6 +238,16 @@ namespace DisplayMonkey
             return request.QueryString[key] ?? "";
         }
 
+        public static DateTime DateTimeOrBlank(this SqlDataReader reader, string column)
+        {
+            return DbValueOrDefault<DateTime>(reader[column], Convert.ToDateTime("1970-01-01 00:00:00"));
+        }
+
+        public static DateTime DateTimeOrDefault(this SqlDataReader reader, string column, DateTime _default)
+        {
+            return DbValueOrDefault<DateTime>(reader[column], _default);
+        }
+
         #endregion // Value helper extensions  //////////////////////////////////////////////
 
         #region Private Members //////////////////////////////////////////////

@@ -23,6 +23,7 @@ namespace DisplayMonkey
 	{
         public string Subject { get; private set; }
         public string Body { get; private set; }
+        public string DateCreated2 { get; private set; }
 
         public Memo(Frame frame)
             : base(frame)
@@ -35,7 +36,8 @@ namespace DisplayMonkey
             using (SqlCommand cmd = new SqlCommand()
             {
                 CommandType = CommandType.Text,
-                CommandText = "SELECT TOP 1 * FROM Memo WHERE FrameId=@frameId",
+                //CommandText = "SELECT TOP 1 * FROM Memo WHERE FrameId=@frameId",  //MM 2019-11-21
+                CommandText = "SELECT TOP 1 * From Memo JOIN Frame ON Memo.FrameId = Frame.FrameId WHERE Memo.FrameId=@frameId", //MM 2019-11-21
             })
             {
                 cmd.Parameters.AddWithValue("@frameId", FrameId);
@@ -43,9 +45,13 @@ namespace DisplayMonkey
                 {
                     Subject = dr.StringOrBlank("Subject");
                     Body = dr.StringOrBlank("Body");
+                    DateCreated2 = dr.DateTimeOrBlank("DateCreated").ToString("yyyy-MM-dd"); //MM 2019-11-21
                     return false;
                 });
             }
         }
 	}
 }
+
+
+///Date(1574091235310)/
