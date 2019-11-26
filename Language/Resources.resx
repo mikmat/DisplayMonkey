@@ -1787,4 +1787,7 @@
   <data name="OauthAppIdRequired" xml:space="preserve">
     <value>Application ID is required</value>
   </data>
+  <data name="ExpirationStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
 </root>

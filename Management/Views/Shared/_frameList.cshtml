@@ -20,74 +20,124 @@
         <th class="num">
             @Html.DisplayNameFor(model => model.FirstOrDefault().Duration), @Resources.Sec
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().BeginsOn)
+            <br />
+            @Html.DisplayNameFor(model => model.FirstOrDefault().EndsOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ExpirationStatus)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td class="nw">
-            @Html.ActionImgLink(item.Icon, "Details", "Frame", new { id = item.FrameId }, new { @class = "thumb1", title = item.TranslatedType })
+<tr>
+    <td class="nw">
+        @Html.ActionImgLink(item.Icon, "Details", "Frame", new { id = item.FrameId }, new { @class = "thumb1", title = item.TranslatedType })
+    </td>
+    <td class="nw">
+        @item.Panel.Canvas.Name
+    </td>
+    <td class="nw">
+        @item.Panel.Name
+    </td>
+    <td>
+        @if (item is Clock)
+        {
+            @Html.Partial("../Clock/_Summary", item)
+        }
+        else if (item is Html)
+        {
+            @Html.Partial("../Html/_Summary", item)
+        }
+        else if (item is Memo)
+        {
+            @Html.Partial("../Memo/_Summary", item)
+        }
+        else if (item is Outlook)
+        {
+            @Html.Partial("../Outlook/_Summary", item)
+        }
+        else if (item is Picture)
+        {
+            @Html.Partial("../Picture/_Summary", item)
+        }
+        else if (item is Powerbi)
+        {
+            @Html.Partial("../Powerbi/_Summary", item)
+        }
+        else if (item is Report)
+        {
+            @Html.Partial("../Report/_Summary", item)
+        }
+        else if (item is Video)
+        {
+            @Html.Partial("../Video/_Summary", item)
+        }
+        else if (item is Weather)
+        {
+            @Html.Partial("../Weather/_Summary", item)
+        }
+        else if (item is Youtube)
+        {
+            @Html.Partial("../Youtube/_Summary", item)
+        }
+        else
+        {
+            <text>@Resources.UnsupportedFrame</text>
+        }
+    </td>
+    <td class="nw num">
+        @Html.DisplayFor(modelItem => item.Duration)
+    </td>
+    <td class="nw">
+        @if (item.BeginsOn < DateTime.Now)
+        {
+            <div class="nw_green">
+                @Html.DisplayFor(modelItem => item.BeginsOn)
+            </div>
+        }
+        else
+        {
+            <div class="nw_red">
+                @Html.DisplayFor(modelItem => item.BeginsOn)
+            </div>
+        }
+        
+        @if (item.EndsOn > DateTime.Now)
+        {
+            <div class="nw_green">
+                @Html.DisplayFor(modelItem => item.EndsOn)
+            </div>
+        }
+        else
+        {
+            <div class="nw_red">
+                @Html.DisplayFor(modelItem => item.EndsOn)
+            </div>
+        }
+
+    </td>
+
+    @if (item.BeginsOn < DateTime.Now && item.EndsOn > DateTime.Now)
+    {
+        <td class="nw_green">
+            Aktiv
         </td>
-        <td class="nw">
-            @item.Panel.Canvas.Name
-        </td>
-        <td class="nw">
-            @item.Panel.Name
-        </td>
-        <td>
-            @if (item is Clock)
-            {
-                @Html.Partial("../Clock/_Summary", item)
-            }
-            else if (item is Html)
-            {
-                @Html.Partial("../Html/_Summary", item)
-            }
-            else if (item is Memo)
-            {
-                @Html.Partial("../Memo/_Summary", item)
-            }
-            else if (item is Outlook)
-            {
-                @Html.Partial("../Outlook/_Summary", item)
-            }
-            else if (item is Picture)
-            {
-                @Html.Partial("../Picture/_Summary", item)
-            }
-            else if (item is Powerbi)
-            {
-                @Html.Partial("../Powerbi/_Summary", item)
-            }
-            else if (item is Report)
-            {
-                @Html.Partial("../Report/_Summary", item)
-            }
-            else if (item is Video)
-            {
-                @Html.Partial("../Video/_Summary", item)
-            }
-            else if (item is Weather)
-            {
-                @Html.Partial("../Weather/_Summary", item)
-            }
-            else if (item is Youtube)
-            {
-                @Html.Partial("../Youtube/_Summary", item)
-            }
-            else
-            {
-                <text>@Resources.UnsupportedFrame</text>
-            }
-        </td>
-        <td class="nw num">
-            @Html.DisplayFor(modelItem => item.Duration)
-        </td>
-        <td class="nw">
-            @Html.ActionLink(Resources.Edit, "Edit", "Frame", new { id=item.FrameId }, null) |
-            @Html.ActionLink(Resources.Delete, "Delete", "Frame", new { id=item.FrameId }, null)
-        </td>
-    </tr>
+    }
+    else
+    {
+    <td class="nw_red">
+        Inaktiv
+    </td>
+    }
+
+<td class="nw">
+    @Html.ActionLink(Resources.Edit, "Edit", "Frame", new { id = item.FrameId }, null) |
+    @Html.ActionLink(Resources.Delete, "Delete", "Frame", new { id = item.FrameId }, null)
+</td>
+</tr>
 }
 
 </table>

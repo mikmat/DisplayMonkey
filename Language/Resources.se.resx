@@ -139,16 +139,16 @@
     <value>Base URL</value>
   </data>
   <data name="BeginsOn" xml:space="preserve">
-    <value>Begins on</value>
+    <value>Börjar den</value>
   </data>
   <data name="Canvas" xml:space="preserve">
     <value>Canvas</value>
   </data>
   <data name="Clock" xml:space="preserve">
-    <value>Clock</value>
+    <value>Klocka</value>
   </data>
   <data name="ClockType" xml:space="preserve">
-    <value>Clock type</value>
+    <value>Klocktyp</value>
   </data>
   <data name="Content" xml:space="preserve">
     <value>Content</value>
@@ -163,13 +163,13 @@
     <value>Display type</value>
   </data>
   <data name="Duration" xml:space="preserve">
-    <value>Duration</value>
+    <value>Längd</value>
   </data>
   <data name="EndsOn" xml:space="preserve">
-    <value>Expires on</value>
+    <value>Slutar den</value>
   </data>
   <data name="Error" xml:space="preserve">
-    <value>Error</value>
+    <value>Fel</value>
   </data>
   <data name="ErrorDetails" xml:space="preserve">
     <value>Details</value>
@@ -346,7 +346,7 @@
     <value>One week forecast</value>
   </data>
   <data name="ContentType_Picture" xml:space="preserve">
-    <value>Picture</value>
+    <value>Bild</value>
   </data>
   <data name="ContentType_Video" xml:space="preserve">
     <value>Video</value>
@@ -412,7 +412,7 @@
     <value>Canvas is required</value>
   </data>
   <data name="ClockTypeRequired" xml:space="preserve">
-    <value>Clock type is required</value>
+    <value>Klocktyp krävs</value>
   </data>
   <data name="FrameTypeRequired" xml:space="preserve">
     <value>Frame type is required</value>
@@ -524,16 +524,16 @@
     <value>Change Displayed</value>
   </data>
   <data name="ClockFrameDetails" xml:space="preserve">
-    <value>Clock frame details</value>
+    <value>Klockframe detaljer</value>
   </data>
   <data name="ConfigureNewReportServerAccount" xml:space="preserve">
     <value>Configure new report server account</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Create</value>
+    <value>Skapa</value>
   </data>
   <data name="CreateNew" xml:space="preserve">
-    <value>Create new</value>
+    <value>Skapa nu</value>
   </data>
   <data name="CreateNewCanvas" xml:space="preserve">
     <value>Create new canvas</value>
@@ -545,16 +545,16 @@
     <value>Create new display</value>
   </data>
   <data name="CreateNewFrame" xml:space="preserve">
-    <value>Create new frame</value>
+    <value>Skapa ny frame</value>
   </data>
   <data name="CreateNewLocation" xml:space="preserve">
-    <value>Create new location</value>
+    <value>Skapa ny location</value>
   </data>
   <data name="CreateNewMemoFrame" xml:space="preserve">
-    <value>Create new memo frame</value>
+    <value>Skapa ny memo frame</value>
   </data>
   <data name="CreateNewPanel" xml:space="preserve">
-    <value>Create new panel</value>
+    <value>Skapa ny panel</value>
   </data>
   <data name="CreateNewPictureFrame" xml:space="preserve">
     <value>Create new picture frame</value>
@@ -665,7 +665,7 @@
     <value>File format</value>
   </data>
   <data name="Filter" xml:space="preserve">
-    <value>Filter</value>
+    <value>Filtrera</value>
   </data>
   <data name="FromArea" xml:space="preserve">
     <value>- From Area -</value>
@@ -776,7 +776,7 @@
     <value>Search</value>
   </data>
   <data name="Sec" xml:space="preserve">
-    <value>sec.</value>
+    <value>sek.</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
@@ -978,7 +978,7 @@
     <value>GEO translation has failed. Please try saving again.</value>
   </data>
   <data name="CreateNewHtmlFrame" xml:space="preserve">
-    <value>Create new HTML frame</value>
+    <value>Skapa ny HTML frame</value>
   </data>
   <data name="Html" xml:space="preserve">
     <value>HTML</value>
@@ -1209,7 +1209,7 @@
     <value>Create Outlook frame</value>
   </data>
   <data name="Cultre" xml:space="preserve">
-    <value>Culture</value>
+    <value>Språk</value>
   </data>
   <data name="EditOutlookFrame" xml:space="preserve">
     <value>Edit Outlook frame</value>
@@ -1384,10 +1384,10 @@
     <value>Could not be resolved.</value>
   </data>
   <data name="Copy" xml:space="preserve">
-    <value>Copy</value>
+    <value>Kopiera</value>
   </data>
   <data name="CopyCanvas" xml:space="preserve">
-    <value>Copy canvas</value>
+    <value>Kopiera canvas</value>
   </data>
   <data name="CopyFrameLocations" xml:space="preserve">
     <value>Copy all frame locations</value>
@@ -1525,7 +1525,7 @@
     <value>Tenant id is required</value>
   </data>
   <data name="CreateNewAzureAccount" xml:space="preserve">
-    <value>Create new Microsoft Azure account</value>
+    <value>Skapa nytt Microsoft Azure konto</value>
   </data>
   <data name="AzureAccount" xml:space="preserve">
     <value>Microsoft Azure account</value>
@@ -1793,5 +1793,8 @@
   </data>
   <data name="WeatherProvider_YR" xml:space="preserve">
     <value>Väder från YR</value>
+  </data>
+  <data name="ExpirationStatus" xml:space="preserve">
+    <value>Status</value>
   </data>
 </root>

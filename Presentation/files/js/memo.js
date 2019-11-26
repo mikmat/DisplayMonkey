@@ -64,9 +64,7 @@ DM.Memo = Class.create(DM.FrameBase, {
 
         // otherwise...
         // get bottoms of container and our text
-        var pb = par.offsetTop + par.clientHeight,
-		    cb = par.offsetTop + this.div.offsetTop + this.div.offsetHeight
-        ;
+        var pb = par.offsetTop + par.clientHeight, cb = par.offsetTop + this.div.offsetTop + this.div.offsetHeight;
 
         // first we show text up to X seconds before scrolling it
         if (this.state == 0) {

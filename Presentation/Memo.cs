@@ -45,13 +45,10 @@ namespace DisplayMonkey
                 {
                     Subject = dr.StringOrBlank("Subject");
                     Body = dr.StringOrBlank("Body");
-                    DateCreated2 = dr.DateTimeOrBlank("DateCreated").ToString("yyyy-MM-dd"); //MM 2019-11-21
+                    DateCreated2 = dr.DateTimeOrBlank("BeginsOn").ToString("yyyy-MM-dd"); //MM 2019-11-21
                     return false;
                 });
             }
         }
 	}
 }
-
-
-///Date(1574091235310)/

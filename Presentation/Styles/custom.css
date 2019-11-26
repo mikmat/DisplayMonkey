@@ -56,3 +56,32 @@ iframe.html {
 .youtube {
 }
 
+.memo {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height: 914px;
+	line-height:normal;
+	/*border:1px solid maroon;*/
+	font-family:Futura, Verdana, Arial, Helvetica, sans-serif, "Coop New";
+	font-size:1.5em;
+	text-align:left;
+	color: rgb(0, 102, 0);
+	padding:15px;
+	background-color: #F5F8F2;
+}
+
+	.memo h1.subject {
+		padding:15px;
+		color:white;
+		font-size:40px;
+		line-height:40px;
+		text-transform:uppercase;
+	}
+	
+	.memo .body {
+		padding:15px;
+		height: 100%
+	}
+	

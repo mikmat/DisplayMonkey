@@ -22,10 +22,11 @@ namespace DisplayMonkey.Models
             this.BeginsOn = _fromFrame.BeginsOn;
             this.EndsOn = _fromFrame.EndsOn;
             this.Sort = _fromFrame.Sort;
-            //this.DateCreated = _fromFrame.DateCreated;
+            this.DateCreated = _fromFrame.DateCreated; //MM uncommented 2019-11-25 
             //this.Version = _fromFrame.Version;
             this.TemplateId = _fromFrame.TemplateId;
             this.CacheInterval = _fromFrame.CacheInterval;
+            this.ExpirationStatus = _fromFrame.ExpirationStatus;
         }
 
         protected virtual void init(DisplayMonkeyEntities _db)
@@ -59,7 +60,7 @@ namespace DisplayMonkey.Models
                 DataType(DataType.DateTime,
                     ErrorMessageResourceType = typeof(Resources),
                     ErrorMessageResourceName = "DateTimeExpected"),
-                //DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true),
+            //DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true),
             ]
             public Nullable<System.DateTime> BeginsOn { get; set; }
 
@@ -68,7 +69,7 @@ namespace DisplayMonkey.Models
                 DataType(DataType.DateTime,
                     ErrorMessageResourceType = typeof(Resources),
                     ErrorMessageResourceName = "DateTimeExpected"),
-                //DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true),
+            //DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true),
             ]
             public Nullable<System.DateTime> EndsOn { get; set; }
 
@@ -81,6 +82,11 @@ namespace DisplayMonkey.Models
                Display(ResourceType = typeof(Resources), Name = "DateCreated"),
             ]
             public System.DateTime DateCreated { get; protected set; }
+
+            [
+                Display(ResourceType = typeof(Resources), Name = "ExpirationStatus"),
+            ]
+            public string ExpirationStatus { get; set; }
 
             //public byte[] Version { get; set; }
 
