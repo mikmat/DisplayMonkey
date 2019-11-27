@@ -20,8 +20,8 @@ div.panel {
 .clock {
 }
 
-    .clock .clockLabel{
-    }
+.clock .clockLabel{
+}
 
 .weather {
 }
@@ -32,11 +32,11 @@ iframe.html {
 .memo {
 }
 	
-	.memo .subject {
+.memo .subject {
 	}
 
-	.memo .body {
-	}
+.memo .body {
+}
 
 .outlook {
 }
@@ -50,26 +50,26 @@ iframe.html {
 .video {
 }
 
-    video.videoPlayer {
-    }
+video.videoPlayer {
+}
 
 .youtube {
 }
 
 .memo {
-	position:absolute;
-	left:0;
-	top:0;
-	width:100%;
-	height: 914px;
-	line-height:normal;
-	/*border:1px solid maroon;*/
-	font-family:Futura, Verdana, Arial, Helvetica, sans-serif, "Coop New";
-	font-size:1.5em;
-	text-align:left;
-	color: rgb(0, 102, 0);
-	padding:15px;
-	background-color: #F5F8F2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 914px;
+    line-height: normal;
+    /*border:1px solid maroon;*/
+    font-family: Futura, Verdana, Arial, Helvetica, sans-serif, "Coop New";
+    font-size: 1.5em;
+    text-align: left;
+    color: rgb(0, 102, 0);
+    padding: 15px;
+    background-color: #F5F8F2;
 }
 
 	.memo h1.subject {
@@ -84,4 +84,17 @@ iframe.html {
 		padding:15px;
 		height: 100%
 	}
-	
+
+    .memo .bg1 {
+        background-image: url("https://via.placeholder.com/150");
+        height: 100%;
+    }
+
+    .memo .bg2 {
+        background-image: url("https://via.placeholder.com/250");
+        height: 100%;
+    }
+
+h1 {
+    color: #3a8d49;
+}

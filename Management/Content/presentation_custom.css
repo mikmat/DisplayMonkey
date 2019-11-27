@@ -1,0 +1,90 @@
+﻿/*!
+* DisplayMonkey source file
+* http://displaymonkey.org
+*
+* Copyright (c) 2015 Fuel9 LLC and contributors
+*
+* Released under the MIT license:
+* http://opensource.org/licenses/MIT
+*/
+
+
+/* use this stylesheet to override default styles with your own */
+
+div.fullpanel {
+}
+
+div.panel {
+}
+
+.clock {
+}
+
+    .clock .clockLabel {
+    }
+
+.weather {
+}
+
+iframe.html {
+}
+
+.memo {
+}
+
+    .memo .subject {
+    }
+
+    .memo .body {
+    }
+
+.outlook {
+}
+
+.picture {
+}
+
+.report {
+}
+
+.video {
+}
+
+video.videoPlayer {
+}
+
+.youtube {
+}
+
+.memo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 914px;
+    line-height: normal;
+    /*border:1px solid maroon;*/
+    font-family: Futura, Verdana, Arial, Helvetica, sans-serif, "Coop New";
+    font-size: 1.5em;
+    text-align: left;
+    color: rgb(0, 102, 0);
+    padding: 15px;
+    background-color: #F5F8F2;
+}
+
+    .memo h1.subject {
+        padding: 15px;
+        color: white;
+        font-size: 40px;
+        line-height: 40px;
+        text-transform: uppercase;
+    }
+
+    .memo .body {
+        padding: 15px;
+        height: 100%
+    }
+
+h1 {
+    color: #3a8d49;
+}

@@ -1,22 +1,72 @@
 ﻿@model DisplayMonkey.Models.Html
 
-    <fieldset>
-        <legend>@Resources.Html</legend>
+<fieldset>
+    <legend>@Resources.Html</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Content)
-        </div>
-        <div class="editor-field">
-            @Html.TextAreaFor(model => model.Content, new {@class = "htmlEdit"})
-            @Html.ValidationMessageFor(model => model.Content)
-        </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Content)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.Content, new { @class = "htmlEdit" })
+        @Html.ValidationMessageFor(model => model.Content)
+    </div>
 
-    </fieldset>
+</fieldset>
+
+<script type="text/javascript">
+    tinymce.init({
+        selector: '#Content',
+        menubar: ' edit view insert format tools table',
+        toolbar: 'preview | undo redo | bold italic underline strikethrough |fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist  | forecolor backcolor removeformat | emoticons | fullscreen | image media  link | code',
+        plugins: 'preview code importcss searchreplace autolink visualblocks visualchars fullscreen image link media  codesample table charmap hr  nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable charmap quickbars emoticons',
+        contextmenu: "link image imagetools table",
+        image_advtab: true,
+        toolbar_sticky: true,
+        images_upload_url: '/Html/UploadImage',
+        paste_data_images: true,
+        branding: false,
+        font_formats: 'Coop=Coop New',
+        content_css: "/Content/presentation_custom.css",
+        resize: 'both',
+        language: 'sv_SE',
+        relative_urls: false,
+        remove_script_host: false,
+        plugin_preview_width: 800,
+        plugin_preview_height: 600,
+    });
+
+
+</script>
+
+
+<!--
+<script>
+        ClassicEditor
+            .create(
+                document.querySelector('#Content'), {
+        fontFamily: {
+            options: [
+                'Coop New',
+                'Ubuntu, Arial, sans-serif',
+                'Ubuntu Mono, Courier New, Courier, monospace'
+            ]
+        },
+    }
+
+            )
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+</script>
+    -->

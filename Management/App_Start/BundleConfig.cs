@@ -18,6 +18,8 @@ namespace DisplayMonkey
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+            bundles.UseCdn = true; //enable CDN support
             // Scripts ==========================================================================================
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",

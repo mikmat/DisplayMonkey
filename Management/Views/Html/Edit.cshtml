@@ -17,7 +17,8 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     @Html.Referrer()
@@ -41,12 +42,21 @@
 @section Scripts {
     @Scripts.Render("~/bundles/cleditor")
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            //var x = jHtmlArea.defaultOptions;
-            //x.toolbar.push(["forecolor"]);
-            //$("textarea").htmlarea(x);
-            $("textarea").cleditor({ bodyStyle: "@bg" });
-        });
-    </script>
+
+    <script src="~/Scripts/tinymce/tinymce.js"></script>
+
+
+
+    <!--  <script src="~/Scripts/ckeditor.js"></script> -->
+    <!-- <script type="text/javascript">
+            $(document).ready(function () {
+                //var x = jHtmlArea.defaultOptions;
+                //x.toolbar.push(["forecolor"]);
+                //$("textarea").htmlarea(x);
+                $("textarea").cleditor({ bodyStyle: "@bg" });
+            });
+        </script>
+        -->
+
+
 }

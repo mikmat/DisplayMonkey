@@ -12,11 +12,14 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 //using System.Net;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using DisplayMonkey.Models;
+using file;
 
 namespace DisplayMonkey.Controllers
 {
@@ -97,6 +100,28 @@ namespace DisplayMonkey.Controllers
             return View(html);
         }
 
+        [HttpPost]
+        public JsonResult UploadImage(HttpPostedFileBase file)
+        {
+            var uploadsPath = HostingEnvironment.MapPath($"/uploads");
+            var uploadsDir = new DirectoryInfo(uploadsPath);
+            if (!uploadsDir.Exists)
+                uploadsDir.Create();
+
+            var imageRelativePath = $"/uploads/{DateTime.Now:yyyy-MM-dd_HH-mm-ss}_{file.FileName}";
+            var imageAbsPath = HostingEnvironment.MapPath(imageRelativePath);
+            var tjo = HostingEnvironment.ApplicationVirtualPath;
+            var imageBytes = file.InputStream.ReadToEnd();
+            System.IO.File.WriteAllBytes(imageAbsPath, imageBytes);
+
+            var request = HttpContext.Request; 
+            var address = string.Format("{0}://{1}", request.Url.Scheme, request.Url.Authority);
+
+            return Json(new { location = address+imageRelativePath });
+
+        }
+
+
         // POST: /Html/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -166,6 +191,21 @@ namespace DisplayMonkey.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+    }
+}
+
+namespace file
+{
+    public static class InputStream
+    {
+        public static byte[] ReadToEnd(this Stream input)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                input.CopyTo(ms);
+                return ms.ToArray();
+            }
         }
     }
 }

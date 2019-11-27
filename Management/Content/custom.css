@@ -37,14 +37,14 @@
 /**************** jqsimplemenu.css overrides END ****************/
 
 html {
-    background-color: #336699;
+    /*background-color: #336699;*/
     margin: 0;
     padding: 0;
     height: 100%;
 }
 
 body {
-    background-color: #336699;
+    /*background-color: #336699;*/
     /*border-top: solid 10px #336699;*/
     color: #333;
     font-size: .90em;
@@ -1205,4 +1205,10 @@ ul.options input[type=checkbox] {
 .nw_red {
     color: red;
     white-space: nowrap;
+}
+
+.mce-content-body {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: "Coop New";
 }
