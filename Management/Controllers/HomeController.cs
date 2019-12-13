@@ -22,6 +22,7 @@ namespace DisplayMonkey.Controllers
     {
         private DisplayMonkeyEntities db = new DisplayMonkeyEntities();
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             

@@ -62,7 +62,8 @@
                 </div>
                 <div class="float-right">
                     <section id="login">
-                       @Resources.Hello, <span class="username">@User.Identity.Name</span>!
+                        @Resources.Hello, <span class="username">@User.Identity.Name</span>!
+                        @Html.Partial("_LoginPartial")
                     </section>
                     <nav>
                         <ul class="menu">

@@ -87,7 +87,7 @@ namespace DisplayMonkey.Controllers
 
         //
         // GET: /PanelsForCanvas/5
-
+        [AllowAnonymous]
         public JsonResult PanelsForCanvas(int /*canvas*/ id = 0)
         {
             return Json(GetPanelsForCanvas(id).ToList(), JsonRequestBehavior.AllowGet);
@@ -95,7 +95,7 @@ namespace DisplayMonkey.Controllers
 
         //
         // GET: /Frame/
-
+        [AllowAnonymous]
         public ActionResult Index(int canvasId = 0, int panelId = 0, FrameTypes? frameType = null, int? timingOption = null /*, int page = 1*/)
         {
             //if (page <= 0) page = 1;
@@ -161,7 +161,7 @@ namespace DisplayMonkey.Controllers
 
         //
         // GET: /Frame/Create
-
+        [AllowAnonymous]
         public ActionResult Create(int canvasId = 0, int panelId = 0, FrameTypes? frameType = null)
         {
             Panel panel = null;
@@ -197,7 +197,7 @@ namespace DisplayMonkey.Controllers
 
             return RedirectToAction("Create", frameType.ToString());
         }
-
+        [AllowAnonymous]
         public ActionResult ForFrameType(int canvasId = 0, int panelId = 0, FrameTypes? frameType = null)
         {
             if (canvasId == 0)
@@ -226,6 +226,7 @@ namespace DisplayMonkey.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult ForFrameType([Bind(Include = "CanvasId,PanelId,FrameType")] FrameSelector selector)
         {
             PushReferrer();
@@ -253,7 +254,7 @@ namespace DisplayMonkey.Controllers
 
         //
         // GET: /Frame/Details/5
-
+        [AllowAnonymous]
         public ActionResult Details(int id = 0)
         {
             Frame frame = db.Frames
@@ -293,7 +294,7 @@ namespace DisplayMonkey.Controllers
 
         //
         // GET: /Frame/Delete/5
-
+        [AllowAnonymous]
         public ActionResult Delete(int id = 0)
         {
             Frame frame = db.Frames
@@ -313,7 +314,7 @@ namespace DisplayMonkey.Controllers
 
         //
         // GET: /Frame/Attach/5
-
+        [AllowAnonymous]
         public ActionResult Attach(int id = 0)
         {
             Frame frame = db.Frames.Find(id);
@@ -347,6 +348,7 @@ namespace DisplayMonkey.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Attach(LocationSelector selector)
         {
             Frame frame = db.Frames.Find(selector.FrameId);
@@ -380,7 +382,7 @@ namespace DisplayMonkey.Controllers
 
         //
         // GET: /Frame/Detach/5
-
+        [AllowAnonymous]
         public ActionResult Detach(int id = 0, int locationId = 0)
         {
             Frame frame = db.Frames.Find(id);
@@ -401,6 +403,7 @@ namespace DisplayMonkey.Controllers
 
         [HttpPost, ActionName("Detach")]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult DetachConfirmed(int id, int locationId)
         {
             Frame frame = db.Frames.Find(id);

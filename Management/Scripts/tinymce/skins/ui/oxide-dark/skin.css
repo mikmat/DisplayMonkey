@@ -400,7 +400,6 @@ button::-moz-focus-inner {
 .tox .tox-checkbox__input {
   /* Hide from view but visible to screen readers */
   height: 1px;
-  left: -10000px;
   overflow: hidden;
   position: absolute;
   top: auto;
@@ -462,11 +461,17 @@ button::-moz-focus-inner {
 .tox:not([dir=rtl]) .tox-checkbox__label {
   margin-left: 4px;
 }
+.tox:not([dir=rtl]) .tox-checkbox__input {
+  left: -10000px;
+}
 .tox:not([dir=rtl]) .tox-bar .tox-checkbox {
   margin-left: 4px;
 }
 .tox[dir=rtl] .tox-checkbox__label {
   margin-right: 4px;
+}
+.tox[dir=rtl] .tox-checkbox__input {
+  right: -10000px;
 }
 .tox[dir=rtl] .tox-bar .tox-checkbox {
   margin-right: 4px;
@@ -541,30 +546,36 @@ button::-moz-focus-inner {
   background-color: inherit;
   color: contrast(inherit, #2A3746, #fff);
 }
-.tox .tox-collection--list .tox-collection__item--active:not(.tox-collection__item--state-disabled) {
+.tox .tox-collection--list .tox-collection__item--active {
   background-color: #4a5562;
-  color: #fff;
 }
 .tox .tox-collection--toolbar .tox-collection__item--enabled {
   background-color: #757d87;
   color: #fff;
 }
-.tox .tox-collection--toolbar .tox-collection__item--active:not(.tox-collection__item--state-disabled) {
+.tox .tox-collection--toolbar .tox-collection__item--active {
   background-color: #4a5562;
-  color: #fff;
 }
 .tox .tox-collection--grid .tox-collection__item--enabled {
   background-color: #757d87;
   color: #fff;
 }
-.tox .tox-collection--grid .tox-collection__item--active:not(.tox-collection__item--state-disabled) {
+.tox .tox-collection--grid .tox-collection__item--active {
   background-color: #4a5562;
+}
+.tox .tox-collection--list .tox-collection__item--active:not(.tox-collection__item--state-disabled) {
+  color: #fff;
+}
+.tox .tox-collection--toolbar .tox-collection__item--active:not(.tox-collection__item--state-disabled) {
+  color: #fff;
+}
+.tox .tox-collection--grid .tox-collection__item--active:not(.tox-collection__item--state-disabled) {
   color: #fff;
 }
 .tox .tox-collection__item--state-disabled {
   background-color: transparent;
   color: rgba(255, 255, 255, 0.5);
-  cursor: default;
+  cursor: not-allowed;
 }
 .tox .tox-collection__item-icon {
   align-items: center;
