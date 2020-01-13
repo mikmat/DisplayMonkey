@@ -248,6 +248,18 @@ namespace DisplayMonkey.Models
             Display(ResourceType = typeof(Resources), Name = "Canvas"),
         ]
         public int CanvasId { get; set; }
+               
+        public FrameTypesNonAdmin frameTypesNonAdmin { get; set;  }
+        
+    }
+
+    public enum FrameTypesNonAdmin : int
+    {
+        Html = 1,
+        Memo = 2,
+        Picture = 5,
+        Video = 7,
+        YouTube = 9,
     }
 
     public class LocationSelector : Frame

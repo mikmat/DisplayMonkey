@@ -25,6 +25,7 @@ namespace DisplayMonkey.Models
         Video = 7,
         Weather = 8,
         YouTube = 9,
-        Powerbi = 10
+        Powerbi = 10, 
+        Coopsales = 990
     }
 }

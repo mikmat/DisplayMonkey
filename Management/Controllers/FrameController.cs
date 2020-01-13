@@ -15,6 +15,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using DisplayMonkey.Models;
 
 namespace DisplayMonkey.Controllers
@@ -24,7 +25,7 @@ namespace DisplayMonkey.Controllers
         private DisplayMonkeyEntities db = new DisplayMonkeyEntities();
 
         public const string SelectorFrameKey = "_selectorFrame";
-
+        
         private void FillCanvasesSelectList(object selected = null)
         {
             var query = from c in db.Canvases
@@ -44,28 +45,43 @@ namespace DisplayMonkey.Controllers
         {
             IQueryable<Panel> list = db.Panels;
 
-            if (canvasId > 0)
+            if (User.IsInRole("Admin"))
             {
-                return db.Panels
-                    .Where(p => p.CanvasId == canvasId)
-                    .Select(p => new PanelSelectListItem { 
-                        id = p.PanelId, 
-                        name = p.Name, 
+               if (canvasId > 0)
+                {
+                    return db.Panels
+                        .Where(p => p.CanvasId == canvasId)
+                        .Select(p => new PanelSelectListItem
+                        {
+                            id = p.PanelId,
+                            name = p.Name,
                         //selected = p.PanelId == panelId 
                     })
-                    .OrderBy(p => p.name)
-                    ;
+                        .OrderBy(p => p.name)
+                        ;
+                }
+                else
+                {
+                    return db.Panels
+                        .Select(p => new PanelSelectListItem
+                        {
+                            id = p.PanelId,
+                            name = canvasId == 0 ? p.Canvas.Name + " : " + p.Name : p.Name,
+                        //selected = p.PanelId == panelId 
+                    })
+                        .OrderBy(p => p.name)
+                        ;
+                }
             }
             else
             {
-                return db.Panels
-                    .Select(p => new PanelSelectListItem { 
-                        id = p.PanelId,
-                        name = canvasId == 0 ? p.Canvas.Name + " : " + p.Name : p.Name,
-                        //selected = p.PanelId == panelId 
-                    })
-                    .OrderBy(p => p.name)
-                    ;
+                return db.Panels.Select(p => new PanelSelectListItem
+                {
+                    id = p.PanelId,
+                    name = p.Name,
+                })
+                    .Where(p => p.id == 2)
+                ;
             }
         }
 
@@ -76,7 +92,16 @@ namespace DisplayMonkey.Controllers
 
         private void FillFrameTypeSelectList(FrameTypes? selected = null)
         {
-            ViewBag.FrameType = selected.TranslatedSelectList(valueAsText: true);
+            if (User.IsInRole("Admin"))
+            {
+                ViewBag.FrameType = selected.TranslatedSelectList(valueAsText: true);
+            }
+            else
+            {
+                //ViewBag.FrameType = selected.TranslatedSelectList(valueAsText: true);
+                ViewBag.FrameType = EnumHelper.GetSelectList(typeof(FrameTypesNonAdmin)); // new SelectList(FrameTypesNonAdmin, "id", "name", selected);
+            }
+
         }
 
         private void FillTimingOptionsSelectList(Frame.TimingOptions? selected = null)

@@ -115,5 +115,10 @@ namespace DisplayMonkey.Models
             Display(ResourceType = typeof(Resources), Name = "CopyFrameLocations"),
         ]
         public bool CopyFrameLocations { get; set; }
+
+        [
+            Display(ResourceType = typeof(Resources), Name = "CopyFrameLevels"),
+        ]
+        public bool CopyFrameLevels { get; set; }
     }
 }

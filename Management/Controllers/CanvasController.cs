@@ -210,6 +210,7 @@ namespace DisplayMonkey.Controllers
                 CopyPanels = ViewBag.PanelCount > 0,
                 CopyFrames = ViewBag.FrameCount > 0,
                 CopyFrameLocations = ViewBag.LocationCount > 0,
+                CopyFrameLevels = ViewBag.LevelCount > 0
             };
             ViewBag.Canvas = canvas;
             return View(canvasCopy);
@@ -242,6 +243,11 @@ namespace DisplayMonkey.Controllers
 
                     if (canvasCopy.CopyFrameLocations)
                         canvasQ = canvasQ.Include(c => c.Panels.Select(p => p.Frames.Select(f => f.Locations)));
+
+                   /* if (canvasCopy.CopyFrameLevels)
+                        canvasQ = canvasQ.Include(c => c.Panels.Select(p => p.Frames.Select(f => f.Levels)));
+                        */
+
                 }
             }
 
@@ -278,6 +284,7 @@ namespace DisplayMonkey.Controllers
             canvasCopy.CopyPanels = ViewBag.PanelCount > 0;
             canvasCopy.CopyFrames = ViewBag.FrameCount > 0;
             canvasCopy.CopyFrameLocations = ViewBag.LocationCount > 0;
+            canvasCopy.CopyFrameLevels = ViewBag.LevelCount > 0;
             ViewBag.Canvas = canvas;
             return View(canvasCopy);
         }

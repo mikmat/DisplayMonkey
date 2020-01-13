@@ -39,6 +39,24 @@ namespace System.Web.Mvc
                         ;
             return new SelectList(items, "Value", "Text", enumObj);
         }
+
+        public static SelectList TranslatedSelectListDict<T>(this Nullable<T> enumObj, bool valueAsText = false)
+          where T : struct, IComparable, IFormattable, IConvertible
+        {
+            ResourceManager rm = new ResourceManager(typeof(DisplayMonkey.Language.Resources));
+
+            var items = (from T e in Enum.GetValues(typeof(T))
+                         select new SelectListItem
+                         {
+                             Value = valueAsText ? e.ToString() : e.ToInt32(null).ToString(),
+                             //Text = e.TranslatedDescription(),
+                             Text = rm.GetString(e.ToString()),
+                             //Selected = (!enumObj.Equals(null) && e.Equals(enumObj))
+                         })
+                        .OrderBy(i => i.Text)
+                        ;
+            return new SelectList(items, "Value", "Text", enumObj);
+        }
     }
 }
 

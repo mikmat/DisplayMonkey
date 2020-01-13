@@ -1797,4 +1797,7 @@
   <data name="ExpirationStatus" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="CoopSales" xml:space="preserve">
+    <value>Coop Försäljning</value>
+  </data>
 </root>

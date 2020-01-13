@@ -87,8 +87,19 @@ mark {
     width: 100%;
 }
 
+
+.float-left-logo {
+    float: left;
+    /*width: 100%;*/
+}
+
 .float-right {
     float: right;
+}
+
+.float-right-userid {
+    float: right;
+    margin-top: 16px;
 }
 
 .clear-fix:after {
@@ -202,14 +213,18 @@ footer {
 ----------------------------------------------------------*/
 #login {
     display: block;
-    font-size: .85em;
+    font-size: .90em;
     margin: 0 0 0px;
     text-align: right;
     color: #fff;
+    background: none;
+    text-transform: none;
 }
 
     #login a {
-        background-color: #d3dce0;
+        /*background-color: #d3dce0;*/
+        background: none;
+        color: #fff;
         margin-left: 10px;
         margin-right: 3px;
         padding: 2px 3px;
@@ -1212,3 +1227,8 @@ ul.options input[type=checkbox] {
     word-wrap: break-word;
     font-family: "Coop New";
 }
+
+.useredit {
+    display: block;
+}
+

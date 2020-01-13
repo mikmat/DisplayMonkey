@@ -11,34 +11,34 @@
     @Html.ValidationSummary(true)
     @Html.Referrer()
 
-    <fieldset>
-        <legend>@Resources.Frame</legend>
+<fieldset>
+    <legend>@Resources.Frame</legend>
 
-        <div class="editor-label">
-            @Html.Label(Resources.SelectCanvas)
-        </div>
-        <div class="editor-field select">
-            @Html.DropDownListFor(c => c.CanvasId, ViewBag.CanvasId as SelectList)
-        </div>
+    <div class="editor-label">
+        @Html.Label(Resources.SelectCanvas)
+    </div>
+    <div class="editor-field select">
+        @Html.DropDownListFor(c => c.CanvasId, ViewBag.CanvasId as SelectList)
+    </div>
 
-        <div class="editor-label">
-            @Html.Label(Resources.SelectPanel)
-        </div>
-        <div class="editor-field select">
-            @Html.DropDownListFor(p => p.PanelId, ViewBag.PanelId as SelectList)
-        </div>
+    <div class="editor-label">
+        @Html.Label(Resources.SelectPanel)
+    </div>
+    <div class="editor-field select">
+        @Html.DropDownListFor(p => p.PanelId, ViewBag.PanelId as SelectList)
+    </div>
 
-        <div class="editor-label">
-            @Html.Label(Resources.SelectFrameType)
-        </div>
-        <div class="editor-field select">
-            @Html.DropDownListFor(s => s.FrameType, ViewBag.FrameType as SelectList)
-        </div>
-
-        <p>
-            <input type="submit" value="@Resources.Next" />
-        </p>
-    </fieldset>
+    <div class="editor-label">
+        @Html.Label(Resources.SelectFrameType)
+    </div>
+    <div class="editor-field select">
+        @Html.DropDownListFor(s => s.FrameType, ViewBag.FrameType as SelectList)
+    </div>
+   
+    <p>
+        <input type="submit" value="@Resources.Next" />
+    </p>
+</fieldset>
 }
 
 <div>

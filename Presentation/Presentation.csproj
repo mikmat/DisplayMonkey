@@ -328,6 +328,7 @@
     <Compile Include="getYahooWeather.ashx.cs">
       <DependentUpon>getYahooWeather.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Coopsales.cs" />
     <Compile Include="OAuthAccount.cs" />
     <Compile Include="Powerbi.cs" />
     <Compile Include="AzureUtil.cs" />

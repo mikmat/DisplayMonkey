@@ -29,9 +29,7 @@ namespace DisplayMonkey.Models
         public byte[] Version { get; protected set; }
         public int TemplateId { get; set; }
         public int CacheInterval { get; set; }
-
-        public string ExpirationStatus { get; set; }
-    
+        public int ExpirationStatus { get; set; }    
         public virtual Panel Panel { get; set; }
         public virtual ICollection<Location> Locations { get; set; }
         public virtual Template Template { get; set; }
