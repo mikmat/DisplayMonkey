@@ -110,7 +110,9 @@ namespace DisplayMonkey
         private static readonly List<string> _cultures = new List<string> {
             "en-US",  // first culture is the DEFAULT
             "es", // Spanish NEUTRAL culture
-            "ar"  // Arabic NEUTRAL culture
+            "ar",  // Arabic NEUTRAL culture
+            "se",
+            "sv-SE"
         };
 
         /// <summary>

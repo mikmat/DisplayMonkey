@@ -1,4 +1,4 @@
-/*!
+﻿/*!
 * DisplayMonkey source file
 * http://displaymonkey.org
 *
@@ -8,9 +8,90 @@
 * http://opensource.org/licenses/MIT
 */
 
+@charset "UTF-8";
+
+A:link {
+    text-decoration: none;
+    color: #d23006;
+}
+
+A:visited {
+    text-decoration: none;
+    color: #d23006;
+}
+
+A:active {
+    text-decoration: none;
+    color: #d23006;
+}
+
+A:hover {
+    text-decoration: none;
+    color: #005072;
+}
+
+
+@font-face {
+    font-family: Futura;
+    src: url('fonts/futura.eot') format('embedded-opentype'); /* For IE */
+    src: local('futura'), url('fonts/futura.ttf') format('truetype'); /* For non-IE */
+}
+
+/*******************************************************************************/
+
+
+@font-face {
+    font-family: 'CoopNewTTCondP';
+    src: url('fonts/CoopNewTTCondP.eot');
+    src: url('fonts/CoopNewTTCondP.eot?#iefix') format('embedded-opentype'), url('fonts/CoopNewTTCondP.svg#CoopNewTTCondP') format('svg'), url('fonts/CoopNewTTCondP.ttf') format('truetype'), url('fonts/CoopNewTTCondP.woff') format('woff'), url('fonts/CoopNewTTCondP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoopNew';
+    src: local('Coop New'),local('CoopNew'),
+    url('fonts/CoopNew.eot'),
+    url('fonts/CoopNew.eot?#iefix') format('embedded-opentype'), url('fonts/CoopNew.svg#CoopNew') format('svg'), url('fonts/CoopNew.ttf') format('truetype'), url('fonts/CoopNew.woff') format('woff'), url('fonts/CoopNew.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoopNewPrice';
+    src: url('fonts/CoopNewPrice.eot');
+    src: url('fonts/CoopNewPrice.eot?#iefix') format('embedded-opentype'), url('fonts/CoopNewPrice.svg#CoopNewPrice') format('svg'), url('fonts/CoopNewPrice.ttf') format('truetype'), url('fonts/CoopNewPrice.woff') format('woff'), url('fonts/CoopNewPrice.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoopNewTTCond';
+    src: url('fonts/CoopNewTTCond.eot');
+    src: url('fonts/CoopNewTTCond.eot?#iefix') format('embedded-opentype'), url('fonts/CoopNewTTCond.svg#CoopNewTTCond') format('svg'), url('fonts/CoopNewTTCond.ttf') format('truetype'), url('fonts/CoopNewTTCond.woff') format('woff'), url('fonts/CoopNewTTCond.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoopNewTTReg';
+    src: url('fonts/CoopNewTTReg.eot');
+    src: url('fonts/CoopNewTTReg.eot?#iefix') format('embedded-opentype'), url('fonts/CoopNewTTReg.svg#CoopNewTTReg') format('svg'), url('fonts/CoopNewTTReg.ttf') format('truetype'), url('fonts/CoopNewTTReg.woff') format('woff'), url('fonts/CoopNewTTReg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoopNewTTRegP';
+    src: url('fonts/CoopNewTTRegP.eot');
+    src: url('fonts/CoopNewTTRegP.eot?#iefix') format('embedded-opentype'), url('fonts/CoopNewTTRegP.svg#CoopNewTTRegP') format('svg'), url('fonts/CoopNewTTRegP.ttf') format('truetype'), url('fonts/CoopNewTTRegP.woff') format('woff'), url('fonts/CoopNewTTRegP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ 
 
 /* use this stylesheet to override default styles with your own */
-
 div.fullpanel {
 }
 
@@ -27,9 +108,11 @@ div.panel {
 }
 
 iframe.html {
+    /*font-family: CoopNew;*/
+    font-family: 'Trebuchet MS';
 }
-
-.memo {
+iframe {
+    font-family: 'Trebuchet MS';
 }
 	
 .memo .subject {
@@ -61,10 +144,10 @@ video.videoPlayer {
     left: 0;
     top: 0;
     width: 100%;
-    height: 914px;
-    line-height: normal;
+    height: 765px;
+    line-height: 150%;
     /*border:1px solid maroon;*/
-    font-family: Futura, Verdana, Arial, Helvetica, sans-serif, "Coop New";
+    font-family: Futura, Verdana, Arial, Helvetica, sans-serif, CoopNew;
     font-size: 1.5em;
     text-align: left;
     color: rgb(0, 102, 0);
@@ -77,13 +160,19 @@ video.videoPlayer {
 		color:white;
 		font-size:40px;
 		line-height:40px;
-		text-transform:uppercase;
+		text-transform: none;a
 	}
-	
-	.memo .body {
-		padding:15px;
-		height: 100%
-	}
+
+    .memo .body {
+        /*padding:15px;*/
+        height: 100%;
+        white-space: pre-line;
+        padding: 15px;
+        position: absolute;
+        left: 15px;
+        margin-right: 15px;
+        line-height: 150%;
+    }
 
     .memo .bg1 {
         background-image: url("https://via.placeholder.com/150");
@@ -97,4 +186,95 @@ video.videoPlayer {
 
 h1 {
     color: #3a8d49;
+    font-size: 40px;
+    font-family: "CoopNew";
 }
+
+h2 {
+    /*font-size: 40px;*/
+    /*line-height: 40px;*/
+}
+
+html {
+    font-family: "CoopNew";
+}
+
+.html {
+    font-family: "CoopNew";
+}
+
+.body {
+    font-family: "CoopNew";
+    font-size: 28px;
+}
+body {
+   font-family: sans-serif;
+}
+
+span {
+   /* font-family: sans-serif;
+    font-size: 20px;*/
+}
+
+#document {
+    font-family: "CoopNew";
+}
+
+
+.htmlcontent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 800px;
+    line-height: normal;
+    /*border:1px solid maroon;*/
+    font-family: CoopNew, 'Coop New'
+    font-size: 1.5em;
+    text-align: left;
+    color: rgb(0, 102, 0);
+    padding: 15px;
+}
+
+
+
+.memo .green-corner {
+    position: absolute;
+    right: 32px;
+    top: 638px;
+    width: 0px;
+    height: 0px;
+    border-bottom: 155px solid #3a8d49;
+    border-left: 155px solid transparent;
+    z-index: 9;
+}
+
+
+.memo .red-corner {
+    position: absolute;
+    right: 32px;
+    top: 638px;
+    width: 0px;
+    height: 0px;
+    border-bottom: 155px solid #ED1B24; 
+    border-left: 155px solid transparent;
+    z-index: 9;
+}
+
+.memo .butiksinfo {
+    position: absolute;
+    right: 35px;
+    top:720px;
+    /*text-transform: uppercase;*/
+    color: white;
+    font-size: 12pt;
+    font-weight: normal;
+    z-index: 10;
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -sand-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+

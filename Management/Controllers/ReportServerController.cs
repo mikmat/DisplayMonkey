@@ -17,6 +17,8 @@ using System.Web;
 using System.Web.Mvc;
 using DisplayMonkey.Models;
 using DisplayMonkey.Language;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace DisplayMonkey.Controllers
 {

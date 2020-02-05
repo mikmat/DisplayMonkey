@@ -16,6 +16,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DisplayMonkey.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace DisplayMonkey.Controllers
 {
@@ -65,8 +67,30 @@ namespace DisplayMonkey.Controllers
         {
             if (ModelState.IsValid)
             {
+                //memo.Body.Replace("\n", "<br/>");
                 db.Frames.Add(memo);
                 db.SaveChanges();
+
+                // Om användaren är i rollen "butik" ska vi skapa en post i FrameLocation
+                if (User.IsInRole("Butik"))
+                {
+                    ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+                    string butik = user.PhoneNumber;
+
+                    int userlocation = (from ul in db.Locations
+                                        where ul.Name.Contains(user.PhoneNumber)
+                                        select ul.LocationId).FirstOrDefault();
+
+                    int lastcreatedframe = (from lf in db.Frames
+                                            orderby lf.FrameId descending
+                                            select lf.FrameId).FirstOrDefault();
+
+
+                    Frame frame = db.Frames.Find(lastcreatedframe);
+                    Location location = db.Locations.Find(userlocation);
+                    frame.Locations.Add(location);
+                    db.SaveChanges();
+                }
 
                 return RedirectToAction("Index", "Frame");
             }

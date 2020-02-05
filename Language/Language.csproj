@@ -52,7 +52,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.de.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources.se.Designer.cs" />
+    <Compile Include="Resources.sv-SE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.sv-SE.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources.zz.Designer.cs">
       <DependentUpon>Resources.zz.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -68,7 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.fr.resx" />
-    <EmbeddedResource Include="Resources.se.resx" />
     <EmbeddedResource Include="Resources.zz.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.zz.Designer.cs</LastGenOutput>
@@ -83,8 +86,16 @@
       <LastGenOutput>Resources.de.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources.sv-SE.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.sv-SE.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -28,13 +28,21 @@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().ExpirationStatus)
         </th>
+        <th>Plats</th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
 <tr>
     <td class="nw">
-        @Html.ActionImgLink(item.Icon, "Details", "Frame", new { id = item.FrameId }, new { @class = "thumb1", title = item.TranslatedType })
+        @if (User.IsInRole("Butik"))
+        {
+            <img class="thumb1" title="@item.TranslatedType" src="@item.Icon.Replace("~/","")">
+        }
+        else
+        {
+            @Html.ActionImgLink(item.Icon, "Details", "Frame", new { id = item.FrameId }, new { @class = "thumb1", title = item.TranslatedType })
+        }
     </td>
     <td class="nw">
         @item.Panel.Canvas.Name
@@ -104,7 +112,7 @@
                 @Html.DisplayFor(modelItem => item.BeginsOn)
             </div>
         }
-        
+
         @if (item.EndsOn > DateTime.Now)
         {
             <div class="nw_green">
@@ -128,15 +136,25 @@
     }
     else
     {
-    <td class="nw_red">
-        Inaktiv
-    </td>
+        <td class="nw_red">
+            Inaktiv
+        </td>
     }
 
+    
 <td class="nw">
-    @Html.ActionLink(Resources.Edit, "Edit", "Frame", new { id = item.FrameId }, null) |
-    @Html.ActionLink(Resources.Delete, "Delete", "Frame", new { id = item.FrameId }, null)
+    @foreach (var loc in item.Locations)
+    {
+        @loc.Name
+    }
+
 </td>
+    
+
+    <td class="nw">
+        @Html.ActionLink(Resources.Edit, "Edit", "Frame", new { id = item.FrameId }, null) |
+        @Html.ActionLink(Resources.Delete, "Delete", "Frame", new { id = item.FrameId }, null)
+    </td>
 </tr>
 }
 

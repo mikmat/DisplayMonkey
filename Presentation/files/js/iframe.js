@@ -19,6 +19,14 @@ DM.Iframe = Class.create(DM.FrameBase, {
         var data = options.panel.data;
         this.div.addEventListener('load', this.ready.bind(this));
         this.div.src = "getHtml.ashx?" + $H({ frame: this.frameId, hash: data.Hash }).toQueryString();
+        //this.div.select('.dateCreated2')[0].update(data.DateCreated2); //MM 2019-11-21
+        try {
+            this.div.previousElementSibling.update(data.DateCreated2); //MM 2019-11-21
+        }
+        catch (err)
+        {
+            this;
+        }
     },
 
     uninit: function ($super) {

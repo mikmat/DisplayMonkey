@@ -428,6 +428,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\CoopNew.svg" />
+    <Content Include="Content\CoopNewPrice.svg" />
+    <Content Include="Content\CoopNewTTCond.svg" />
+    <Content Include="Content\CoopNewTTCondP.svg" />
+    <Content Include="Content\CoopNewTTReg.svg" />
+    <Content Include="Content\CoopNewTTRegP.svg" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\images\buttons.gif" />
     <Content Include="Content\images\darrow.png" />
@@ -610,7 +616,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Create.cs.t4</DependentUpon>
     </None>
+    <Content Include="Content\CoopNew.eot" />
+    <Content Include="Content\CoopNew.ttf" />
+    <Content Include="Content\CoopNew.woff" />
+    <Content Include="Content\CoopNew.woff2" />
+    <Content Include="Content\CoopNewPrice.eot" />
+    <Content Include="Content\CoopNewPrice.ttf" />
+    <Content Include="Content\CoopNewPrice.woff" />
+    <Content Include="Content\CoopNewPrice.woff2" />
+    <Content Include="Content\CoopNewTTCond.eot" />
+    <Content Include="Content\CoopNewTTCond.ttf" />
+    <Content Include="Content\CoopNewTTCond.woff" />
+    <Content Include="Content\CoopNewTTCond.woff2" />
+    <Content Include="Content\CoopNewTTCondP.eot" />
+    <Content Include="Content\CoopNewTTCondP.ttf" />
+    <Content Include="Content\CoopNewTTCondP.woff" />
+    <Content Include="Content\CoopNewTTCondP.woff2" />
+    <Content Include="Content\CoopNewTTReg.eot" />
+    <Content Include="Content\CoopNewTTReg.ttf" />
+    <Content Include="Content\CoopNewTTReg.woff" />
+    <Content Include="Content\CoopNewTTReg.woff2" />
+    <Content Include="Content\CoopNewTTRegP.eot" />
+    <Content Include="Content\CoopNewTTRegP.ttf" />
+    <Content Include="Content\CoopNewTTRegP.woff" />
+    <Content Include="Content\CoopNewTTRegP.woff2" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -1042,7 +1073,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49613</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51053/</IISUrl>
+          <IISUrl>http://conille_mm3:51053/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

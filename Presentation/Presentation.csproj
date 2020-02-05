@@ -195,6 +195,12 @@
     <Content Include="Scripts\Scriptaculous\sound.js" />
     <Content Include="Scripts\Scriptaculous\unittest.js" />
     <Content Include="Styles\blank.cur" />
+    <Content Include="Styles\fonts\CoopNew.svg" />
+    <Content Include="Styles\fonts\CoopNewPrice.svg" />
+    <Content Include="Styles\fonts\CoopNewTTCond.svg" />
+    <Content Include="Styles\fonts\CoopNewTTCondP.svg" />
+    <Content Include="Styles\fonts\CoopNewTTReg.svg" />
+    <Content Include="Styles\fonts\CoopNewTTRegP.svg" />
     <Content Include="Styles\fonts\futura.eot" />
     <Content Include="Styles\fonts\futura.ttc" />
     <Content Include="Styles\fonts\futura.ttf" />
@@ -418,11 +424,37 @@
     <Content Include="getVideo.ashx" />
     <Content Include="getDisplayData.ashx" />
     <Content Include="getAzureToken.ashx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Styles\fonts\CoopNew.eot" />
+    <Content Include="Styles\fonts\CoopNew.ttf" />
+    <Content Include="Styles\fonts\CoopNew.woff" />
+    <Content Include="Styles\fonts\CoopNew.woff2" />
+    <Content Include="Styles\fonts\CoopNewPrice.eot" />
+    <Content Include="Styles\fonts\CoopNewPrice.ttf" />
+    <Content Include="Styles\fonts\CoopNewPrice.woff" />
+    <Content Include="Styles\fonts\CoopNewPrice.woff2" />
+    <Content Include="Styles\fonts\CoopNewTTCond.eot" />
+    <Content Include="Styles\fonts\CoopNewTTCond.ttf" />
+    <Content Include="Styles\fonts\CoopNewTTCond.woff" />
+    <Content Include="Styles\fonts\CoopNewTTCond.woff2" />
+    <Content Include="Styles\fonts\CoopNewTTCondP.eot" />
+    <Content Include="Styles\fonts\CoopNewTTCondP.ttf" />
+    <Content Include="Styles\fonts\CoopNewTTCondP.woff" />
+    <Content Include="Styles\fonts\CoopNewTTCondP.woff2" />
+    <Content Include="Styles\fonts\CoopNewTTReg.eot" />
+    <Content Include="Styles\fonts\CoopNewTTReg.ttf" />
+    <Content Include="Styles\fonts\CoopNewTTReg.woff" />
+    <Content Include="Styles\fonts\CoopNewTTReg.woff2" />
+    <Content Include="Styles\fonts\CoopNewTTRegP.eot" />
+    <Content Include="Styles\fonts\CoopNewTTRegP.ttf" />
+    <Content Include="Styles\fonts\CoopNewTTRegP.woff" />
+    <Content Include="Styles\fonts\CoopNewTTRegP.woff2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Language\Language.csproj">
@@ -456,7 +488,7 @@
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>49357</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49357/</IISUrl>
+          <IISUrl>http://conille_mm3:49357/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

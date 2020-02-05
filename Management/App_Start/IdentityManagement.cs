@@ -17,6 +17,7 @@ namespace DisplayMonkey
         [Required(AllowEmptyStrings = false)]
         [Display(Name = "RoleName")]
         public string Name { get; set; }
+        public string PhoneNumber { get; set; }
     }
 
     public class EditUserViewModel
@@ -29,6 +30,10 @@ namespace DisplayMonkey
         public string Email { get; set; }
 
         public IEnumerable<SelectListItem> RolesList { get; set; }
+        //public int? StoreId { get; internal set; }
+
+        [Phone]
+        public string PhoneNumber { get; set; }
     }
 
     public class AppBuilderProvider : IDisposable

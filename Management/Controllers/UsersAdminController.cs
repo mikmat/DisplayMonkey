@@ -143,7 +143,9 @@ namespace DisplayMonkey
                     Selected = userRoles.Contains(x.Name),
                     Text = x.Name,
                     Value = x.Name
-                })
+                }),
+                //StoreId = user.StoreID
+                PhoneNumber = user.PhoneNumber
             });
         }
 
@@ -151,7 +153,7 @@ namespace DisplayMonkey
         // POST: /Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Email,Id")] EditUserViewModel editUser, params string[] selectedRole)
+        public async Task<ActionResult> Edit([Bind(Include = "Email,Id,PhoneNumber")] EditUserViewModel editUser, params string[] selectedRole)
         {
             if (ModelState.IsValid)
             {
@@ -163,7 +165,7 @@ namespace DisplayMonkey
 
                 user.UserName = editUser.Email;
                 user.Email = editUser.Email;
-
+                user.PhoneNumber = editUser.PhoneNumber;
                 var userRoles = await UserManager.GetRolesAsync(user.Id);
 
                 selectedRole = selectedRole ?? new string[] { };

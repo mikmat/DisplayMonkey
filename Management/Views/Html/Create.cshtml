@@ -16,7 +16,8 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     @Html.Referrer()
@@ -33,6 +34,7 @@
     @Html.ActionLink(Resources.ViewFrames, "Index", "Frame")
 </div>
 
+<!---->
 @section Styles {
     @Styles.Render("~/Content/cleditorcss")
 }
@@ -40,7 +42,9 @@
 @section Scripts {
     @Scripts.Render("~/bundles/cleditor")
 
-    <script type="text/javascript">
+    <script src="~/Scripts/tinymce/tinymce.js"></script>
+
+    <!--<script type="text/javascript">
         $(document).ready(function () {
             //var x = jHtmlArea.defaultOptions;
             //x.toolbar.push(["forecolor"]);
@@ -48,4 +52,5 @@
             $("textarea").cleditor({ bodyStyle: "@bg" });
         });
     </script>
+        -->
 }

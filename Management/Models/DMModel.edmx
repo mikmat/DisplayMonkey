@@ -107,14 +107,6 @@
           <Property Name="FrameId" Type="int" Nullable="false" />
           <Property Name="LocationId" Type="int" Nullable="false" />
         </EntityType>
-      <EntityType Name="FrameLevel">
-        <Key>
-          <PropertyRef Name="FrameId" />
-          <PropertyRef Name="LevelId" />
-        </Key>
-        <Property Name="FrameId" Type="int" Nullable="false" />
-        <Property Name="LevelId" Type="int" Nullable="false" />
-      </EntityType>
         <EntityType Name="FullScreen">
           <Key>
             <PropertyRef Name="PanelId" />
@@ -417,34 +409,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      <Association Name="FK_FrameLevel_Level">
-        <End Role="Level" Type="Self.Level" Multiplicity="1">
-          <OnDelete Action="Cascade" />
-        </End>
-        <End Role="FrameLevel" Type="Self.FrameLevel" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Level">
-            <PropertyRef Name="LevelId" />
-          </Principal>
-          <Dependent Role="FrameLevel">
-            <PropertyRef Name="LeelId" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="FK_FrameLevel_Frame">
-        <End Role="Frame" Type="Self.Frame" Multiplicity="1">
-          <OnDelete Action="Cascade" />
-        </End>
-        <End Role="FrameLevel" Type="Self.FrameLevel" Multiplicity="*" />
-        <ReferentialConstraint>
-          <Principal Role="Frame">
-            <PropertyRef Name="FrameId" />
-          </Principal>
-          <Dependent Role="FrameLevel">
-            <PropertyRef Name="FrameId" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
         <Association Name="FK_FullScreen_Panel">
           <End Role="Panel" Type="Self.Panel" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -744,7 +708,6 @@
           <EntitySet Name="ExchangeAccount" EntityType="Self.ExchangeAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Frame" EntityType="Self.Frame" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FrameLocation" EntityType="Self.FrameLocation" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FrameLevel" EntityType="Self.FrameLevel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FullScreen" EntityType="Self.FullScreen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Html" EntityType="Self.Html" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
@@ -795,14 +758,6 @@
           <AssociationSet Name="FK_FrameLocation_Frame" Association="Self.FK_FrameLocation_Frame">
             <End Role="Frame" EntitySet="Frame" />
             <End Role="FrameLocation" EntitySet="FrameLocation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FrameLevel_Level" Association="Self.FK_FrameLevel_Level">
-            <End Role="Level" EntitySet="Level" />
-            <End Role="FrameLevel" EntitySet="FrameLevel" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FrameLevel_Frame" Association="Self.FK_FrameLevel_Frame">
-            <End Role="Frame" EntitySet="Frame" />
-            <End Role="FrameLevel" EntitySet="FrameLevel" />
           </AssociationSet>
           <AssociationSet Name="FK_FullScreen_Panel" Association="Self.FK_FullScreen_Panel">
             <End Role="Panel" EntitySet="Panel" />

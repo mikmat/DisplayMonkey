@@ -37,9 +37,9 @@ namespace DisplayMonkey.Controllers
         public ActionResult Index(int levelId = 0, int areaId = 0, string name = null)
         {
             IQueryable<Location> list = db.Locations
-                .OrderBy(l => l.Level.Name)
+                .OrderBy(l => l.Name)
+                .ThenBy(l => l.Level.Name)
                 .ThenBy(l => l.Area.Name)
-                .ThenBy(l => l.Name)
                 ;
 
             if (levelId > 0)

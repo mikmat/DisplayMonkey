@@ -48,6 +48,7 @@ namespace DisplayMonkey
                     DateCreated2 = dr.DateTimeOrBlank("BeginsOn").ToString("yyyy-MM-dd"); //MM 2019-11-21
                     return false;
                 });
+                Body.Replace("\n", "<br/>");
             }
         }
 	}

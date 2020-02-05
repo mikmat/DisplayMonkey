@@ -154,7 +154,9 @@ namespace DisplayMonkey.Controllers
             {
                 var user = new ApplicationUser { 
                     UserName = model.Email, 
-                    Email = model.Email 
+                    Email = model.Email,
+                    //StoreID = model.StoreID
+
                 };
 
                 var result = await UserManager.CreateAsync(user, model.Password);

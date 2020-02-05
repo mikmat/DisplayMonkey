@@ -35,7 +35,7 @@
             fonts:        // font names in the font popup
                           //"Arial,Arial Black,Comic Sans MS,Courier New,Narrow,Garamond," +
                           //"Georgia,Impact,Sans Serif,Serif,Tahoma,Trebuchet MS,Verdana",
-                          "Coop New,Arial,Arial Black,Trebuchet MS",
+                          "CoopNew,Arial,Arial Black,Trebuchet MS",
             sizes:        // sizes in the font size popup
                           "1,2,3,4,5,6,7",
             styles:       // styles in the style popup

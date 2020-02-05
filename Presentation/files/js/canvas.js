@@ -575,7 +575,9 @@ DM.Panel = Class.create(DM.PanelBase, {
         }
 
         // set html
-        this.newContainer.update(this.data.Html);
+		this.newContainer.update(this.data.Html);
+
+		
 
         // init new frame
         this.newObj = this._initFrame(this.newContainer);
@@ -586,8 +588,15 @@ DM.Panel = Class.create(DM.PanelBase, {
 
         // uninit old object first, then bind to new object
         this._uninitFrame();
-        this.object = this.newObj;   // <-- already inited
-
+		this.object = this.newObj;   // <-- already inited
+		var cssLink = '<link rel="stylesheet" href="styles/custom.css" type="text/css"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
+ 
+		var iframe = document.getElementsByClassName("iframed");
+		for (var i = 0, len = iframe.length | 0; i < len; i = i + 1 | 0) {
+			var elmnt = iframe[i].contentWindow.document.getElementsByTagName("head")[0];
+			elmnt.innerHTML = cssLink;
+		}
+		
         // fade in new container
         (function (con, l) {
             var done = function () {

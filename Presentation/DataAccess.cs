@@ -216,6 +216,10 @@ namespace DisplayMonkey
             return DbValueOrDefault<double>(reader[column], 0);
         }
 
+        public static decimal DecimalOrZero(this SqlDataReader reader, string column)
+        {
+            return DbValueOrDefault<decimal>(reader[column], 0);
+        }
         public static byte[] BytesOrNull(this SqlDataReader reader, string column)
         {
             return DbValueOrNull<byte[]>(reader[column]);

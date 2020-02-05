@@ -16,9 +16,56 @@
     src: url("http://themes.googleusercontent.com/static/fonts/opensans/v7/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff");
 }
 
-/*************** jqsimplemenu.css overrides BEGIN ***************/
 
-.menu, .menu ul {
+
+@font-face {
+    font-family: 'CoopNewTTCondP';
+    src: url('CoopNewTTCondP.eot');
+    src: url('CoopNewTTCondP.eot?#iefix') format('embedded-opentype'), url('CoopNewTTCondP.svg#CoopNewTTCondP') format('svg'), url('CoopNewTTCondP.ttf') format('truetype'), url('CoopNewTTCondP.woff') format('woff'), url('CoopNewTTCondP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoopNew';
+    src: local('CoopNew'),local('Coop New'),url('/Content/CoopNew.eot'),url('/Content/CoopNew.eot?#iefix') format('embedded-opentype'), url('/Content/CoopNew.svg#CoopNew') format('svg'), url('/Content/CoopNew.ttf') format('truetype'), url('/Content/CoopNew.woff') format('woff'), url('/Content/CoopNew.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+    @font-face {
+        font-family: 'CoopNewPrice';
+        src: url('CoopNewPrice.eot');
+        src: url('CoopNewPrice.eot?#iefix') format('embedded-opentype'), url('CoopNewPrice.svg#CoopNewPrice') format('svg'), url('CoopNewPrice.ttf') format('truetype'), url('CoopNewPrice.woff') format('woff'), url('CoopNewPrice.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'CoopNewTTCond';
+        src: url('CoopNewTTCond.eot');
+        src: url('CoopNewTTCond.eot?#iefix') format('embedded-opentype'), url('CoopNewTTCond.svg#CoopNewTTCond') format('svg'), url('CoopNewTTCond.ttf') format('truetype'), url('CoopNewTTCond.woff') format('woff'), url('CoopNewTTCond.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'CoopNewTTReg';
+        src: url('CoopNewTTReg.eot');
+        src: url('CoopNewTTReg.eot?#iefix') format('embedded-opentype'), url('CoopNewTTReg.svg#CoopNewTTReg') format('svg'), url('CoopNewTTReg.ttf') format('truetype'), url('CoopNewTTReg.woff') format('woff'), url('CoopNewTTReg.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'CoopNewTTRegP';
+        src: url('CoopNewTTRegP.eot');
+        src: url('CoopNewTTRegP.eot?#iefix') format('embedded-opentype'), url('CoopNewTTRegP.svg#CoopNewTTRegP') format('svg'), url('CoopNewTTRegP.ttf') format('truetype'), url('CoopNewTTRegP.woff') format('woff'), url('CoopNewTTRegP.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+    /*************** jqsimplemenu.css overrides BEGIN ***************/
+    .menu, .menu ul {
     text-transform: uppercase;
 }
 
@@ -1225,7 +1272,7 @@ ul.options input[type=checkbox] {
 .mce-content-body {
     overflow-wrap: break-word;
     word-wrap: break-word;
-    font-family: "Coop New";
+    font-family: CoopNew;
 }
 
 .useredit {

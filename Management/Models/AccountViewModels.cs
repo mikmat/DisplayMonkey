@@ -81,7 +81,7 @@ namespace DisplayMonkey.Models
         public string ConfirmPassword { get; set; }
 
         //Additional Data for Coop
-        public int StoreID { get; set; }
+        //public int StoreID { get; set; }
     }
 
     public class ResetPasswordViewModel

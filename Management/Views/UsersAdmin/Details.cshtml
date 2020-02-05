@@ -17,6 +17,15 @@
             @Html.DisplayFor(model => model.UserName)
         </dd>
     </dl>
+
+    <dl class="dl-horizontal">
+        <dt>
+            <h4>Butik</h4>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+    </dl>
 </div>
 <h4>List of roles for this user</h4>
 @if (ViewBag.RoleNames.Count == 0)

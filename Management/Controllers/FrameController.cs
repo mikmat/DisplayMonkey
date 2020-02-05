@@ -17,6 +17,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using DisplayMonkey.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace DisplayMonkey.Controllers
 {
@@ -128,7 +130,20 @@ namespace DisplayMonkey.Controllers
             IQueryable<Frame> list = db.Frames
                 .Include(f => f.Panel)
                 .Include(f => f.Panel.Canvas)
+                //.Include(f => f.Locations)
                 ;
+
+            if (User.IsInRole("Butik"))
+            {
+               
+                list = db.Frames
+               .Include(f => f.Panel)
+               .Include(f => f.Panel.Canvas)
+               .Include(f => f.Locations)
+               ;
+               
+                //list = list.Where(f => f.Locations.Contains(location));
+            }
 
             if (canvasId > 0)
             {
@@ -167,7 +182,13 @@ namespace DisplayMonkey.Controllers
             //ViewBag.TotalPages = (int)Math.Ceiling((float)list.Count() / 20.0);
             //ViewBag.CurrentPage = page;
 
-            list = list
+            if (!User.IsInRole("Admin"))
+            {
+
+                list = list
+                .Where(f => f.Panel.Name != "Clock")
+                .Where(f => f.Panel.Name != "Viktigt")
+                .Where(f => f.Panel.Name != "Omsättning")
                 //.Skip((page - 1) * 20)
                 //.Take(20)
                 .OrderBy(f => f.Panel.Canvas.Name)
@@ -175,13 +196,57 @@ namespace DisplayMonkey.Controllers
                 .ThenBy(f => f.Sort == null ? (float)f.FrameId : (float)f.Sort)
                 .ThenBy(f => f.FrameId)
                 ;
-
+            }
+            else
+            {
+                list = list
+                .OrderBy(f => f.Panel.Canvas.Name)
+                .ThenBy(f => f.Panel.Name)
+                .ThenBy(f => f.Sort == null ? (float)f.FrameId : (float)f.Sort)
+                .ThenBy(f => f.FrameId)
+                ;
+            }
             FillCanvasesSelectList(canvasId);
             FillPanelsSelectList(panelId, canvasId);
             FillFrameTypeSelectList(frameType);
             FillTimingOptionsSelectList((Frame.TimingOptions?)timingOption);
-             
-            return View(list.ToList());
+
+            
+
+            if (User.IsInRole("Butik"))
+            {
+                List<Frame> mylist = new List<Frame>();
+
+                
+                ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+                string butik = user.PhoneNumber;
+
+                int userlocation = (from ul in db.Locations
+                                    where ul.Name.Contains(user.PhoneNumber)
+                                    select ul.LocationId).FirstOrDefault();
+
+                Location location = db.Locations.Find(userlocation);
+
+
+                foreach (var fram in list)
+                {
+                    foreach (var loc in fram.Locations)
+                    {
+                        if (loc.Name.Contains(user.PhoneNumber))
+                        {
+                            mylist.Add(fram);
+
+                        }
+                    }
+                }
+                return View(mylist);
+
+            }
+
+            else
+            {
+                return View(list.ToList());
+            }
         }
 
         //

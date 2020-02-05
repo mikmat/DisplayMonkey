@@ -56,8 +56,13 @@
             @Html.DisplayFor(model => item.Size)
         </td>
         <td class="nw">
-            @Html.ActionLink(Resources.Edit, "Edit", new { id=item.ContentId }) |
-            @Html.ActionLink(Resources.Delete, "Delete", new { id=item.ContentId })
+            @Html.ActionLink(Resources.Edit, "Edit", new { id = item.ContentId })
+            |
+            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+            {
+
+                @Html.ActionLink(Resources.Delete, "Delete", new { id = item.ContentId })
+            }
         </td>
     </tr>
 }

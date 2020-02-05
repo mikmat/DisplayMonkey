@@ -9,9 +9,62 @@
 */
 
 
-/* use this stylesheet to override default styles with your own */
+@font-face {
+    font-family: 'CoopNewTTCondP';
+    src: local('CoopNewTTCondP');
+    src: url('/Content/CoopNewTTCondP.eot');
+    src: url('/Content/CoopNewTTCondP.eot?#iefix') format('embedded-opentype'), url('/Content/CoopNewTTCondP.svg#CoopNewTTCondP') format('svg'), url('/Content/CoopNewTTCondP.ttf') format('truetype'), url('/Content/CoopNewTTCondP.woff') format('woff'), url('/Content/CoopNewTTCondP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
-div.fullpanel {
+@font-face {
+    font-family: 'CoopNew';
+    src: local('CoopNew')
+        ,local('Coop New')
+        ,url('/Content/CoopNew.eot')
+        ,url('/Content/CoopNew.eot?#iefix') format('embedded-opentype'), url('/Content/CoopNew.svg#CoopNew') format('svg'), url('/Content/CoopNew.ttf') format('truetype'), url('/Content/CoopNew.woff') format('woff'), url('/Content/CoopNew.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+    @font-face {
+        font-family: 'CoopNewPrice';
+        src: local('CoopNewPrice');
+        src: url('/Content/CoopNewPrice.eot');
+        src: url('/Content/CoopNewPrice.eot?#iefix') format('embedded-opentype'), url('/Content/CoopNewPrice.svg#CoopNewPrice') format('svg'), url('/Content/CoopNewPrice.ttf') format('truetype'), url('/Content/CoopNewPrice.woff') format('woff'), url('/Content/CoopNewPrice.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+@font-face {
+    font-family: 'CoopNewTTCond';
+    src: local('CoopNewTTCond');
+    src: url('/Content/CoopNewTTCond.eot');
+    src: url('/Content/CoopNewTTCond.eot?#iefix') format('embedded-opentype'), url('/Content/CoopNewTTCond.svg#CoopNewTTCond') format('svg'), url('/Content/CoopNewTTCond.ttf') format('truetype'), url('/Content/CoopNewTTCond.woff') format('woff'), url('/Content/CoopNewTTCond.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoopNewTTReg';
+    src: local('CoopNewTTReg');
+    src: url('/Content/CoopNewTTReg.eot');
+    src: url('/Content/CoopNewTTReg.eot?#iefix') format('embedded-opentype'), url('/Content/CoopNewTTReg.svg#CoopNewTTReg') format('svg'), url('/Content/CoopNewTTReg.ttf') format('truetype'), url('/Content/CoopNewTTReg.woff') format('woff'), url('/Content/CoopNewTTReg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoopNewTTRegP';
+    src: local('CoopNewTTRegP');
+    src: url('/Content/CoopNewTTRegP.eot');
+    src: url('/Content/CoopNewTTRegP.eot?#iefix') format('embedded-opentype'), url('/Content/CoopNewTTRegP.svg#CoopNewTTRegP') format('svg'), url('/Content/CoopNewTTRegP.ttf') format('truetype'), url('/Content/CoopNewTTRegP.woff') format('woff'), url('/Content/CoopNewTTRegP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+    /* use this stylesheet to override default styles with your own */
+div .fullpanel {
 }
 
 div.panel {
@@ -27,6 +80,7 @@ div.panel {
 }
 
 iframe.html {
+    font-family: CoopNew;
 }
 
 .memo {
@@ -64,7 +118,7 @@ video.videoPlayer {
     height: 914px;
     line-height: normal;
     /*border:1px solid maroon;*/
-    font-family: Futura, Verdana, Arial, Helvetica, sans-serif, "Coop New";
+    font-family: Futura, Verdana, Arial, Helvetica, sans-serif, CoopNew;
     font-size: 1.5em;
     text-align: left;
     color: rgb(0, 102, 0);

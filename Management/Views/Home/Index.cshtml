@@ -36,7 +36,7 @@
                 <td class="Right_Align">@if (cnt >= 0)
                 {@top[0].Count}</td>
                 <td class="Space">&nbsp;</td>
-                <td class="Left_Align">@if (Request.IsAuthenticated) { @Html.ActionLink(@Resources.Levels, "Index", "Level"); }
+                <td class="Left_Align">@if (Request.IsAuthenticated && User.IsInRole("Admin")) { @Html.ActionLink(@Resources.Levels, "Index", "Level"); }
                 else { <span>@Resources.Levels</span> }</td>
                 <td class="Right_Align">@ViewBag.Count_Levels</td>
             </tr>
@@ -51,7 +51,7 @@
                 <td class="Right_Align Alt">@if (cnt >= 1)
                 {@top[1].Count}</td>
                 <td class="Space">&nbsp;</td>
-                <td class="Left_Align Alt">@if (Request.IsAuthenticated)
+                <td class="Left_Align Alt">@if (Request.IsAuthenticated && User.IsInRole("Admin"))
                 {
                     @Html.ActionLink(@Resources.Locations, "Index", "Location");
                 }
@@ -71,7 +71,7 @@
                 <td class="Right_Align">@if (cnt >= 2)
                 {@top[2].Count}</td>
                 <td class="Space">&nbsp;</td>
-                <td class="Left_Align">@if (Request.IsAuthenticated) { @Html.ActionLink(@Resources.Canvases, "Index", "Canvas"); }
+                <td class="Left_Align">@if (Request.IsAuthenticated && User.IsInRole("Admin")) { @Html.ActionLink(@Resources.Canvases, "Index", "Canvas"); }
                 else {<span>@Resources.Canvases</span>}</td>
                 <td class="Right_Align">@ViewBag.Count_Canvases</td>
             </tr>
@@ -85,7 +85,7 @@
                 <td class="Right_Align Alt">@if (cnt >= 3)
                 {@top[3].Count}</td>
                 <td class="Space">&nbsp;</td>
-                <td class="Left_Align Alt">@if (Request.IsAuthenticated) { @Html.ActionLink(@Resources.Panels, "Index", "Panel"); }
+                <td class="Left_Align Alt">@if (Request.IsAuthenticated && User.IsInRole("Admin")) { @Html.ActionLink(@Resources.Panels, "Index", "Panel"); }
                 else { <span>@Resources.Panels</span> }</td>
                 <td class="Right_Align Alt">@ViewBag.Count_Panels</td>
             </tr>
@@ -98,7 +98,7 @@
                 <td class="Right_Align">@if (cnt >= 4)
                 {@top[4].Count}</td>
                 <td class="Space">&nbsp;</td>
-                <td class="Left_Align">@if (Request.IsAuthenticated) { @Html.ActionLink(@Resources.Displays, "Index", "Display"); }
+                <td class="Left_Align">@if (Request.IsAuthenticated && User.IsInRole("Admin")) { @Html.ActionLink(@Resources.Displays, "Index", "Display"); }
                 else { @Resources.Displays } </td>
                 <td class="Right_Align">@ViewBag.Count_Displays</td>
             </tr>
@@ -113,7 +113,7 @@
             </tr>
             <tr>
                 <td class="Left_Align">
-                    @if (Request.IsAuthenticated)
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {@Html.ActionLink(Resources.Clock, "Index", "Frame", new { FrameType = "Clock" }, null);
                 }
                 else
@@ -146,7 +146,7 @@
             </tr>
             <tr>
                 <td class="Left_Align Alt">
-                    @if (Request.IsAuthenticated)
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {@Html.ActionLink(Resources.Outlook, "Index", "Frame", new { FrameType = "Outlook" }, null);
                 }
                 else
@@ -168,7 +168,7 @@
             </tr>
             <tr>
                 <td class="Left_Align Alt">
-                    @if (Request.IsAuthenticated)
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {@Html.ActionLink(Resources.Powerbi, "Index", "Frame", new { FrameType = "Powerbi" }, null);
                 }
                 else
@@ -179,7 +179,7 @@
             </tr>
             <tr>
                 <td class="Left_Align">
-                    @if (Request.IsAuthenticated)
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {@Html.ActionLink(Resources.Report, "Index", "Frame", new { FrameType = "Report" }, null);
                 }
                 else
@@ -201,7 +201,7 @@
             </tr>
             <tr>
                 <td class="Left_Align">
-                    @if (Request.IsAuthenticated)
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {@Html.ActionLink(Resources.Weather, "Index", "Frame", new { FrameType = "Weather" }, null);
                 }
                 else
