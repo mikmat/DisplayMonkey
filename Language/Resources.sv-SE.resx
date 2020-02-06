@@ -518,7 +518,7 @@
     <value>Kanvasdetaljer</value>
   </data>
   <data name="Canvases" xml:space="preserve">
-    <value>Kanvaser</value>
+    <value>Kanvas</value>
   </data>
   <data name="ChangeDisplayed" xml:space="preserve">
     <value>Ändra Kort</value>
@@ -791,7 +791,7 @@
     <value>Supported media formats include {0} for images and {1} for video. All other content will be ignored.</value>
   </data>
   <data name="ThisFrameWillShowInAllLocations" xml:space="preserve">
-    <value>This frame will show in all locations</value>
+    <value>Det här kortet visas överallt</value>
   </data>
   <data name="UnsupportedFrame" xml:space="preserve">
     <value>Unsupported frame</value>
@@ -864,7 +864,7 @@
     <value>Välj korttyp</value>
   </data>
   <data name="SelectPanel" xml:space="preserve">
-    <value>Välj kort</value>
+    <value>Välj panel</value>
   </data>
   <data name="AddMediaAlternative" xml:space="preserve">
     <value>Lägg till mediaalternativ</value>

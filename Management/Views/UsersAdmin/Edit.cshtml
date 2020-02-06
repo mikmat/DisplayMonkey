@@ -35,8 +35,8 @@
                 @foreach (var item in Model.RolesList)
                 {
                     <span class="useredit">
-                        @Html.Label(item.Value, new { @class = "control-label" })
-                        <input type="checkbox" name="SelectedRole" value="@item.Value" checked="@item.Selected" class="checkbox-inline" />
+                        @Html.Label(item.Value, new { @class = "editor-label" })
+                        <input type="checkbox" name="SelectedRole" value="@item.Value" checked="@item.Selected" class="editor-field" />
                     </span>
                 }
             </span>

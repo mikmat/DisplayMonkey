@@ -278,3 +278,10 @@ span {
     transform: rotate(-45deg);
 }
 
+
+.username {
+    text-transform: none;
+}
+
+
+

@@ -15,7 +15,7 @@
             @Html.LabelFor(model => model.Duration)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "duration" } }) @Resources.Sec
+            @Html.EditorFor( model => model.Duration, new { htmlAttributes = new { @class = "duration" } }) @Resources.Sec
             @Html.ValidationMessageFor(model => model.Duration)
         </div>
 
@@ -31,7 +31,7 @@
             @Html.LabelFor(model => model.BeginsOn)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.BeginsOn, new { htmlAttributes = new { @class = "calendar" } })
+            @Html.EditorFor(model => model.BeginsOn, new { htmlAttributes = new { @class = "calendar1" } })
             @Html.ValidationMessageFor(model => model.BeginsOn)
         </div>
 
@@ -39,7 +39,7 @@
             @Html.LabelFor(model => model.EndsOn)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.EndsOn, new { htmlAttributes = new { @class = "calendar" } })
+            @Html.EditorFor(model => model.EndsOn, new { htmlAttributes = new { @class = "calendar2" } })
             @Html.ValidationMessageFor(model => model.EndsOn)
         </div>
 
@@ -47,6 +47,15 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('input.calendar[type=datetime]').datepicker($.datepicker.regional['sv']);
+
+            $('input.calendar1[type=datetime]').flatpickr({
+                enableTime: true, dateFormat: "Y-m-d H:i", allowInput: true, time_24hr: true, locale: "sv",defaultHour: "00", defaultMinute:"00"
+            });
+
+             $('input.calendar2[type=datetime]').flatpickr({
+                enableTime: true, dateFormat: "Y-m-d H:i", allowInput: true, time_24hr: true, locale: "sv",defaultHour: "23", defaultMinute:"59"
+            });
+            flatpickr.localize(flatpickr.l10ns.sv);
+            //$('input.calendar[type=datetime]').datepicker($.datepicker.regional['sv']);
         });
     </script>

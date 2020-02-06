@@ -1279,3 +1279,9 @@ ul.options input[type=checkbox] {
     display: block;
 }
 
+.editor-label {
+    float: left;
+    margin-right: 10px;
+    width: 100px;
+    text-align: right;
+} 

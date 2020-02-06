@@ -8,8 +8,15 @@
              @Resources.Canvas
         </div>
         <div class="display-field">
-            @Html.ActionLink(Model.Panel.Canvas.Name, "Details", "Canvas", new { id=Model.Panel.CanvasId }, null)
-        </div>
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink(Model.Panel.Canvas.Name, "Details", "Canvas", new { id = Model.Panel.CanvasId }, null)
+            }
+            else
+            {
+                @Model.Panel.Canvas.Name
+            }
+            </div>
         </div>
 
         <div class="divRow">
@@ -17,8 +24,15 @@
              @Resources.Panel
         </div>
         <div class="display-field">
-            @Html.ActionLink(Model.Panel.Name, "Details", "Panel", new { id=Model.PanelId }, null)
-        </div>
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink(Model.Panel.Name, "Details", "Panel", new { id = Model.PanelId }, null)
+            }
+            else
+            {
+                @Model.Panel.Name
+            }
+            </div>
         </div>
 
         <div class="divRow">

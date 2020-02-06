@@ -9,26 +9,34 @@
 @Html.Partial("_Details")
 
 <p>
-    @if (Model.IsFullscreen)
+    @if (User.IsInRole("Admin"))
     {
-        @Html.ActionLink(Resources.Edit, "EditFS", new { id=Model.PanelId })
+        if (Model.IsFullscreen)
+        {
+            @Html.ActionLink(Resources.Edit, "EditFS", new { id = Model.PanelId })
+        }
+        else
+        {
+            @Html.ActionLink(Resources.Edit, "Edit", new { id = Model.PanelId })
+        }
+        @Html.Raw("|")
+        @Html.ActionLink(Resources.ViewPanels, "Index")
+
     }
-    else
-    {
-        @Html.ActionLink(Resources.Edit, "Edit", new { id=Model.PanelId })
-    }
-     | @Html.ActionLink(Resources.ViewPanels, "Index")
 </p>
 
-<h2>@Resources.AssociatedFrames</h2>
+@if (User.IsInRole("Admin"))
+{
+    <h2>@Resources.AssociatedFrames</h2>
 
-@Html.ActionLink(Resources.CreateNewFrame, "Create", "Frame", new { PanelId = Model.PanelId }, null)
-@if (Model.Frames.Count > 1) 
-{ 
-    @(" | ")@Html.ActionLink(Resources.ReOrderFrames, "SortFrames", new { id = Model.PanelId })
+    @Html.ActionLink(Resources.CreateNewFrame, "Create", "Frame", new { PanelId = Model.PanelId }, null)
+    if (Model.Frames.Count > 1)
+    {
+        @(" | ")@Html.ActionLink(Resources.ReOrderFrames, "SortFrames", new { id = Model.PanelId })
+    }
+
+    @Html.Partial("_frameList", Model.Frames)
 }
-
-@Html.Partial("_frameList", Model.Frames)
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

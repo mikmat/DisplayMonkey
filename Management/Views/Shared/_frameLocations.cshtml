@@ -2,41 +2,43 @@
 
 <h2>@Resources.DesignatedLocations</h2>
 
-@Html.ActionLink(Resources.DesignateLocation, "Attach", "Frame", new { id = Model.FrameId }, null)
-
-@if (Model.Locations.Count == 0)
+@if (!User.IsInRole("Butik"))
 {
-    <p>@Resources.ThisFrameWillShowInAllLocations</p>
-}
+    @Html.ActionLink(Resources.DesignateLocation, "Attach", "Frame", new { id = Model.FrameId }, null)
 
-else
-{
-    <table class="grid">
-        
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Locations.FirstOrDefault().Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Locations.FirstOrDefault().Area)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model.Locations)
+    @if (Model.Locations.Count == 0)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Area.Name)
-            </td>
-            <td>
-                @Html.ActionLink(Resources.Remove, "Detach", "Frame", new { id = Model.FrameId, locationId = item.LocationId }, null)
-            </td>
-        </tr>
+        <p>@Resources.ThisFrameWillShowInAllLocations</p>
     }
 
-    </table>
-}
+    else
+    {
+        <table class="grid">
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Locations.FirstOrDefault().Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Locations.FirstOrDefault().Area)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Locations)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink(Resources.Remove, "Detach", "Frame", new { id = Model.FrameId, locationId = item.LocationId }, null)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
