@@ -184,10 +184,10 @@
     <value>Stack trace</value>
   </data>
   <data name="Frame" xml:space="preserve">
-    <value>Kort</value>
+    <value>Sida</value>
   </data>
   <data name="FrameType" xml:space="preserve">
-    <value>Korttyp</value>
+    <value>Sidtyp</value>
   </data>
   <data name="FullScreen" xml:space="preserve">
     <value>Fullskärm</value>
@@ -379,7 +379,7 @@
     <value>Domain</value>
   </data>
   <data name="Frames" xml:space="preserve">
-    <value>Kort</value>
+    <value>Sidor</value>
   </data>
   <data name="FullScreens" xml:space="preserve">
     <value>Fullskärmar</value>
@@ -415,7 +415,7 @@
     <value>Klocktyp krävs</value>
   </data>
   <data name="FrameTypeRequired" xml:space="preserve">
-    <value>Korttyp krävs</value>
+    <value>Sidtyp krävs</value>
   </data>
   <data name="IDRequired" xml:space="preserve">
     <value>ID krävs</value>
@@ -521,7 +521,7 @@
     <value>Kanvas</value>
   </data>
   <data name="ChangeDisplayed" xml:space="preserve">
-    <value>Ändra Kort</value>
+    <value>Ändra Sida</value>
   </data>
   <data name="ClockFrameDetails" xml:space="preserve">
     <value>Klockframe detaljer</value>
@@ -539,28 +539,28 @@
     <value>Skapa ny kanvas</value>
   </data>
   <data name="CreateNewClockFrame" xml:space="preserve">
-    <value>Skapa nytt klockkort</value>
+    <value>Skapa ny klocksida</value>
   </data>
   <data name="CreateNewDisplay" xml:space="preserve">
     <value>Skapa ny display</value>
   </data>
   <data name="CreateNewFrame" xml:space="preserve">
-    <value>Skapa nytt kort</value>
+    <value>Skapa ny sida</value>
   </data>
   <data name="CreateNewLocation" xml:space="preserve">
     <value>Skapa ny plats</value>
   </data>
   <data name="CreateNewMemoFrame" xml:space="preserve">
-    <value>Skapa nytt memo kort</value>
+    <value>Skapa ny memo sida</value>
   </data>
   <data name="CreateNewPanel" xml:space="preserve">
-    <value>Skapa nytt kort</value>
+    <value>Skapa ny Panel</value>
   </data>
   <data name="CreateNewPictureFrame" xml:space="preserve">
-    <value>Skapa nytt bildkort</value>
+    <value>Skapa ny bildsida</value>
   </data>
   <data name="CreateNewReportFrame" xml:space="preserve">
-    <value>Skapa nytt Rapportkort</value>
+    <value>Skapa ny Rapportsida</value>
   </data>
   <data name="CreateNewReportServerAccount" xml:space="preserve">
     <value>Create new report server account</value>
@@ -581,13 +581,13 @@
     <value>Current maximum allowed size for video files is set to</value>
   </data>
   <data name="DeleteClockFrame" xml:space="preserve">
-    <value>Radera klockkort</value>
+    <value>Radera klocksida</value>
   </data>
   <data name="DeleteMedia" xml:space="preserve">
     <value>Radera media</value>
   </data>
   <data name="DeleteMemoFrame" xml:space="preserve">
-    <value>Radera memokort</value>
+    <value>Radera memosida</value>
   </data>
   <data name="DeleteOrganizationLevel" xml:space="preserve">
     <value>Delete organization level</value>
@@ -599,10 +599,10 @@
     <value>Radera panel</value>
   </data>
   <data name="DeletePictureFrame" xml:space="preserve">
-    <value>Radera bildkort</value>
+    <value>Radera bildsida</value>
   </data>
   <data name="DeleteReportFrame" xml:space="preserve">
-    <value>Radera rapportkort</value>
+    <value>Radera rapportsida</value>
   </data>
   <data name="DeleteReportServerAccount" xml:space="preserve">
     <value>Delete report server account</value>
@@ -632,7 +632,7 @@
     <value>Redigera kanvas</value>
   </data>
   <data name="EditClockFrame" xml:space="preserve">
-    <value>Redigera bildkort</value>
+    <value>Redigera bildsida</value>
   </data>
   <data name="EditFullScreenPanel" xml:space="preserve">
     <value>Redigera fullskärmspanel</value>
@@ -641,7 +641,7 @@
     <value>Redigera media</value>
   </data>
   <data name="EditMemoFrame" xml:space="preserve">
-    <value>Redigera memokort</value>
+    <value>Redigera memosida</value>
   </data>
   <data name="EditOrganizationLevel" xml:space="preserve">
     <value>Edit organization level</value>
@@ -653,10 +653,10 @@
     <value>Redigera panel</value>
   </data>
   <data name="EditPictureFrame" xml:space="preserve">
-    <value>Redigera bildkort</value>
+    <value>Redigera bildsida</value>
   </data>
   <data name="EditReportFrame" xml:space="preserve">
-    <value>Redigera rapportkort</value>
+    <value>Redigera rapportsida</value>
   </data>
   <data name="EditReportServerAccount" xml:space="preserve">
     <value>Edit report server account</value>
@@ -692,13 +692,13 @@
     <value>Mediatyp</value>
   </data>
   <data name="MemoFrameDetails" xml:space="preserve">
-    <value>Mediakort detaljer</value>
+    <value>Mediasida detaljer</value>
   </data>
   <data name="Missing" xml:space="preserve">
     <value>Saknas</value>
   </data>
   <data name="NewFrame" xml:space="preserve">
-    <value>Nytt kort</value>
+    <value>Ny sida</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Nästa</value>
@@ -737,7 +737,7 @@
     <value>Paneldetaljer</value>
   </data>
   <data name="PictureFrameDetails" xml:space="preserve">
-    <value>Bildkortdetaljer</value>
+    <value>Bildsidedetaljer</value>
   </data>
   <data name="Pixels" xml:space="preserve">
     <value>pixlar</value>
@@ -791,7 +791,7 @@
     <value>Supported media formats include {0} for images and {1} for video. All other content will be ignored.</value>
   </data>
   <data name="ThisFrameWillShowInAllLocations" xml:space="preserve">
-    <value>Det här kortet visas överallt</value>
+    <value>Den här sidan visas överallt</value>
   </data>
   <data name="UnsupportedFrame" xml:space="preserve">
     <value>Unsupported frame</value>
@@ -819,7 +819,7 @@
     <value>Visa displayer</value>
   </data>
   <data name="ViewFrames" xml:space="preserve">
-    <value>Visa kort</value>
+    <value>Visa sidor</value>
   </data>
   <data name="ViewLevels" xml:space="preserve">
     <value>Visa nivåer</value>
@@ -861,7 +861,7 @@
     <value>Position: {0}, {1}, Size: {2} x {3}</value>
   </data>
   <data name="SelectFrameType" xml:space="preserve">
-    <value>Välj korttyp</value>
+    <value>Välj sidtyp</value>
   </data>
   <data name="SelectPanel" xml:space="preserve">
     <value>Välj panel</value>
@@ -879,22 +879,22 @@
     <value>Back to video details</value>
   </data>
   <data name="CreateNewVideoFrame" xml:space="preserve">
-    <value>Skapa nytt videokort</value>
+    <value>Skapa ny videosida</value>
   </data>
   <data name="CreateNewWeatherFrame" xml:space="preserve">
-    <value>Skapa nytt väderkort</value>
+    <value>Skapa ny vädersida</value>
   </data>
   <data name="DeleteVideoFrame" xml:space="preserve">
-    <value>Radera videokort</value>
+    <value>Radera videosida</value>
   </data>
   <data name="DeleteWeatherFrame" xml:space="preserve">
-    <value>Radera väderkort</value>
+    <value>Radera vädersida</value>
   </data>
   <data name="EditVideoFrame" xml:space="preserve">
-    <value>Redigera videokort</value>
+    <value>Redigera videosida</value>
   </data>
   <data name="EditWeatherFrame" xml:space="preserve">
-    <value>Redigera väderkort</value>
+    <value>Redigera vädersida</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Länka</value>
@@ -954,13 +954,13 @@
     <value>Kontrollpanel</value>
   </data>
   <data name="Dashboard_FramesByType" xml:space="preserve">
-    <value>Kort per typ</value>
+    <value>Sidor per typ</value>
   </data>
   <data name="Dashboard_NumberOfActiveFrames" xml:space="preserve">
-    <value>Aktiva Kort</value>
+    <value>Aktiva sidor</value>
   </data>
   <data name="Dashboard_NumberOfFrames" xml:space="preserve">
-    <value>Alla Kort</value>
+    <value>Alla Sidor</value>
   </data>
   <data name="Dashboard_PreviousSevenDays" xml:space="preserve">
     <value>Senaste sju dagarna</value>
@@ -978,22 +978,22 @@
     <value>GEO translation has failed. Please try saving again.</value>
   </data>
   <data name="CreateNewHtmlFrame" xml:space="preserve">
-    <value>Skapa nytt HTML kort</value>
+    <value>Skapa ny HTML sida</value>
   </data>
   <data name="Html" xml:space="preserve">
     <value>HTML</value>
   </data>
   <data name="DeleteHtmlFrame" xml:space="preserve">
-    <value>Radera HTML kort</value>
+    <value>Radera HTML sida</value>
   </data>
   <data name="EditHtmlFrame" xml:space="preserve">
-    <value>Redigera HTML kort</value>
+    <value>Redigera HTML sida</value>
   </data>
   <data name="ContentRequired" xml:space="preserve">
     <value>Content is required</value>
   </data>
   <data name="HtmlFrameDetails" xml:space="preserve">
-    <value>HTML kort-detaljer</value>
+    <value>HTML siddetaljer</value>
   </data>
   <data name="YouTube" xml:space="preserve">
     <value>YouTube</value>
@@ -1029,13 +1029,13 @@
     <value>YouTube frame details</value>
   </data>
   <data name="CreateNewYoutubeFrame" xml:space="preserve">
-    <value>Skapa nytt YouTube kort</value>
+    <value>Skapa ny YouTube sida</value>
   </data>
   <data name="DeleteYoutubeFrame" xml:space="preserve">
-    <value>Radera YouTube kort</value>
+    <value>Radera YouTube sida</value>
   </data>
   <data name="EditYoutubeFrame" xml:space="preserve">
-    <value>Redigera YouTube kort</value>
+    <value>Redigera YouTube sida</value>
   </data>
   <data name="VolumeRangeError" xml:space="preserve">
     <value>Volume must be between 0 (mute) and 100.</value>
@@ -1110,10 +1110,10 @@
     <value>Kommande</value>
   </data>
   <data name="Dashboard_NumberOfExpiredFrames" xml:space="preserve">
-    <value>Utgångna Kort</value>
+    <value>Utgångna Sidor</value>
   </data>
   <data name="Dashboard_NumberOfPendingFrames" xml:space="preserve">
-    <value>Framtida Kort</value>
+    <value>Kommande Sidor</value>
   </data>
   <data name="Outlook_AvailableUntil" xml:space="preserve">
     <value>Available until {0}</value>
@@ -1179,7 +1179,7 @@
     <value>Show events is required</value>
   </data>
   <data name="DeleteOutlookFrame" xml:space="preserve">
-    <value>Radera Outlook kort</value>
+    <value>Radera Outlook sida</value>
   </data>
   <data name="OutlookEwsVersion_Exchange2007_SP1" xml:space="preserve">
     <value>Exchange 2007 SP1</value>
@@ -1206,13 +1206,13 @@
     <value>Today</value>
   </data>
   <data name="CreateOutlookFrame" xml:space="preserve">
-    <value>Skapa Outlook kort</value>
+    <value>Skapa Outlook sida</value>
   </data>
   <data name="Cultre" xml:space="preserve">
     <value>Språk</value>
   </data>
   <data name="EditOutlookFrame" xml:space="preserve">
-    <value>Redigera Outlook kort</value>
+    <value>Redigera Outlook sida</value>
   </data>
   <data name="C" xml:space="preserve">
     <value>°C</value>
@@ -1309,19 +1309,19 @@
     <value>Är du säker på att du vill radera denna mall?</value>
   </data>
   <data name="CreateNewTemplate" xml:space="preserve">
-    <value>Skapa ny kortmall</value>
+    <value>Skapa ny sidmall</value>
   </data>
   <data name="DeleteTemplate" xml:space="preserve">
-    <value>Radera kortmall</value>
+    <value>Radera sidamall</value>
   </data>
   <data name="EditTemplate" xml:space="preserve">
-    <value>Redigera kortmall</value>
+    <value>Redigera sidmall</value>
   </data>
   <data name="FrameTemplates" xml:space="preserve">
-    <value>Kortmallar</value>
+    <value>Sidmallar</value>
   </data>
   <data name="ViewTemplates" xml:space="preserve">
-    <value>Visa kortmallar</value>
+    <value>Visa sidmallar</value>
   </data>
   <data name="Settings_DefaultTemplateClock" xml:space="preserve">
     <value>Default template for new Clock frames</value>
@@ -1567,13 +1567,13 @@
     <value>Visualization URL</value>
   </data>
   <data name="CreatePowerbiFrame" xml:space="preserve">
-    <value>Skapa Microsoft Power BI kort</value>
+    <value>Skapa Microsoft Power BI sida</value>
   </data>
   <data name="DeletePowerbiFrame" xml:space="preserve">
-    <value>Radera Microsoft Power BI kort</value>
+    <value>Radera Microsoft Power BI sida</value>
   </data>
   <data name="EditPowerbiFrame" xml:space="preserve">
-    <value>Redigera Microsoft Power BI kort</value>
+    <value>Redigera Microsoft Power BI sida</value>
   </data>
   <data name="PowerbiDashboard" xml:space="preserve">
     <value>Dashboard</value>

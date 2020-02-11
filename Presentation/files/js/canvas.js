@@ -594,7 +594,9 @@ DM.Panel = Class.create(DM.PanelBase, {
 		var iframe = document.getElementsByClassName("iframed");
 		for (var i = 0, len = iframe.length | 0; i < len; i = i + 1 | 0) {
 			var elmnt = iframe[i].contentWindow.document.getElementsByTagName("head")[0];
-			elmnt.innerHTML = cssLink;
+			if (elmnt !== undefined) {
+				elmnt.innerHTML = cssLink;
+			}
 		}
 		
         // fade in new container

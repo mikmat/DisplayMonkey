@@ -193,6 +193,7 @@ namespace DisplayMonkey.Controllers
                 //.Take(20)
                 .OrderBy(f => f.Panel.Canvas.Name)
                 .ThenBy(f => f.Panel.Name)
+                .ThenByDescending(f => f.DateCreated)
                 .ThenBy(f => f.Sort == null ? (float)f.FrameId : (float)f.Sort)
                 .ThenBy(f => f.FrameId)
                 ;
@@ -202,6 +203,7 @@ namespace DisplayMonkey.Controllers
                 list = list
                 .OrderBy(f => f.Panel.Canvas.Name)
                 .ThenBy(f => f.Panel.Name)
+                .ThenByDescending(f => f.DateCreated)
                 .ThenBy(f => f.Sort == null ? (float)f.FrameId : (float)f.Sort)
                 .ThenBy(f => f.FrameId)
                 ;
@@ -217,7 +219,6 @@ namespace DisplayMonkey.Controllers
             {
                 List<Frame> mylist = new List<Frame>();
 
-                
                 ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
                 string butik = user.PhoneNumber;
 
@@ -240,7 +241,6 @@ namespace DisplayMonkey.Controllers
                     }
                 }
                 return View(mylist);
-
             }
 
             else

@@ -6,11 +6,10 @@
 {
     @Html.ActionLink(Resources.DesignateLocation, "Attach", "Frame", new { id = Model.FrameId }, null)
 
-    @if (Model.Locations.Count == 0)
+    if (Model.Locations.Count == 0)
     {
         <p>@Resources.ThisFrameWillShowInAllLocations</p>
     }
-
     else
     {
         <table class="grid">
@@ -42,3 +41,4 @@
 
         </table>
     }
+}

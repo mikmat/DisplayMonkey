@@ -239,6 +239,7 @@
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
+    <Compile Include="Controllers\TemplogController.cs" />
     <Compile Include="Controllers\UsersAdminController.cs" />
     <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="Controllers\WeatherController.cs" />
@@ -1045,6 +1046,7 @@
     <Folder Include="Doc\" />
     <Folder Include="Migrations\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Templog\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

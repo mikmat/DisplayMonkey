@@ -17,6 +17,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Configuration;
 using DisplayMonkey.Models;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace DisplayMonkey.Controllers
 {
@@ -99,7 +101,35 @@ namespace DisplayMonkey.Controllers
 
             FillCanvasSelectList(canvasId);
             FillLocationSelectList(locationId);
-            
+
+            if (User.IsInRole("Butik"))
+            {
+                List<Display> mylist = new List<Display>();
+
+
+                ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+                string butik = user.PhoneNumber;
+
+                int userlocation = (from ul in db.Locations
+                                    where ul.Name.Contains(user.PhoneNumber)
+                                    select ul.LocationId).FirstOrDefault();
+
+                Location location = db.Locations.Find(userlocation);
+
+
+                foreach (var disp in displays)
+                {
+                    if (disp.Location.Name.Contains(user.PhoneNumber))
+                    {
+                        mylist.Add(disp);
+
+                    }
+                }
+                return View(mylist);
+
+            }
+
+
             return View(displays.ToList());
         }
 
