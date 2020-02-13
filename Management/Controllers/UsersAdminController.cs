@@ -54,7 +54,7 @@ namespace DisplayMonkey
         // GET: /Users/
         public async Task<ActionResult> Index()
         {
-            return View(await UserManager.Users.ToListAsync());
+            return View(await UserManager.Users.OrderBy(u => u.Email).ToListAsync());
         }
 
         //

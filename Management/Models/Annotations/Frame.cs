@@ -255,8 +255,8 @@ namespace DisplayMonkey.Models
 
     public enum FrameTypesNonAdmin : int
     {
-        Html = 1,
         Memo = 2,
+        Html = 1,
         Picture = 5,
         Video = 7,
         YouTube = 9,

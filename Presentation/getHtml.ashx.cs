@@ -204,17 +204,17 @@ namespace DisplayMonkey
                             "<span style=\"font-family: CoopNew; font-size: 26pt;\">Antal kunder</span>" +
                             "</td> " +
                             "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
-                            if (Convert.ToDecimal(Fys) < 100)
+                            if (Convert.ToDecimal(Fys) > 100)
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">trending_down</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
                             }
-                            else if (Convert.ToDecimal(Fys) > 100)
+                            else if (Convert.ToDecimal(Fys) < 100)
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">trending_up</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
                             }
                             else
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">trending_flat</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
                             }
                             outstring +=
                             "</td>  " +

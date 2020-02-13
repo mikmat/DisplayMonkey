@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -58,17 +60,36 @@ namespace DisplayMonkey.Controllers
 
         // POST: Templog/Edit/5
         [HttpPost]
-        public ActionResult Edit(string ip, string hostname, string temperature)
+        public void Edit(string ip, string hostname, string temperature, string mac)
         {
             try
             {
+                try
+                {
+                    using (SqlCommand updatecmd = new SqlCommand()
+                    {
+                        CommandType = CommandType.Text,
+                        CommandText = "EXEC [SP_UpdatePiStatus] '"+mac+"', '"+hostname+ "','" + ip + "', '" + temperature+"'"
+                        
+
+                    })
+                    {
+                        updatecmd.ExecuteNonQueryExt();
+
+                    }
+                }
+                catch (Exception Ex)
+                {
+                    Console.WriteLine(Ex);
+                    throw;
+                }
                 //var temprec = from g in context.Roles
 
-                return RedirectToAction("Index");
+                return; // RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return;// View();
             }
         }
 

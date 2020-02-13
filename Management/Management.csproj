@@ -244,6 +244,7 @@
     <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="Controllers\WeatherController.cs" />
     <Compile Include="Controllers\YouTubeController.cs" />
+    <Compile Include="DataAccess.cs" />
     <Compile Include="FrameTypes.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
