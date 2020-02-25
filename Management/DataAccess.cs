@@ -33,10 +33,10 @@ namespace DisplayMonkey
 
         private static System.Resources.ResourceManager _rm = null;
 
-        public static System.Resources.ResourceManager ResourceManager 
-        { 
-            get 
-            { 
+        public static System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
                 if (_rm == null)
                     _rm = new System.Resources.ResourceManager(typeof(DisplayMonkey.Language.Resources));
                 return _rm;
@@ -125,7 +125,7 @@ namespace DisplayMonkey
             });
         }
 
-        public static async Task ExecuteTransactionAsync(Func<SqlConnection,SqlTransaction,Task> batch)
+        public static async Task ExecuteTransactionAsync(Func<SqlConnection, SqlTransaction, Task> batch)
         {
             using (SqlConnection cnn = new SqlConnection(ConnectionString))
             {

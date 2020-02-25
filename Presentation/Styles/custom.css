@@ -139,6 +139,28 @@ video.videoPlayer {
 .youtube {
 }
 
+greentext {
+    color: #3a8d49;
+}
+
+.omslabel {
+    font-family: CoopNew;
+    font-size: 26pt;
+    color: #3a8d49;
+}
+
+.omslabel_red {
+    font-family: CoopNew;
+    font-size: 26pt;
+    color: #e20613
+}
+
+.omslabel_green {
+    font-family: CoopNew;
+    font-size: 26pt;
+    color: #3a8d49;
+}
+
 .memo {
     position: absolute;
     left: 0;

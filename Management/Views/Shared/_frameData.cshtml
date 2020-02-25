@@ -46,6 +46,31 @@
     </fieldset>
 
     <script type="text/javascript">
+
+        if (navigator.userAgent.match(/Trident\/7\./)) {
+            document.addEventListener("DOMContentLoaded", function (event) {
+                $('input.calendar1[type=datetime]').flatpickr({
+                    enableTime: true, dateFormat: "Y-m-d", allowInput: true, time_24hr: true, locale: "sv", defaultHour: "00", defaultMinute: "00"
+                });
+
+                $('input.calendar2[type=datetime]').flatpickr({
+                    enableTime: true, dateFormat: "Y-m-d", allowInput: true, time_24hr: true, locale: "sv", defaultHour: "23", defaultMinute: "59"
+                });
+                flatpickr.localize(flatpickr.l10ns.sv);
+            });
+        } else {
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            $('input.calendar1[type=datetime]').flatpickr({
+                enableTime: true, dateFormat: "Y-m-d H:i", allowInput: true, time_24hr: true, locale: "sv",defaultHour: "00", defaultMinute:"00"
+            });
+
+             $('input.calendar2[type=datetime]').flatpickr({
+                enableTime: true, dateFormat: "Y-m-d H:i", allowInput: true, time_24hr: true, locale: "sv",defaultHour: "23", defaultMinute:"59"
+            });
+            flatpickr.localize(flatpickr.l10ns.sv);
+        });
+             }
+        /*
         $(document).ready(function () {
 
             $('input.calendar1[type=datetime]').flatpickr({
@@ -57,5 +82,5 @@
             });
             flatpickr.localize(flatpickr.l10ns.sv);
             //$('input.calendar[type=datetime]').datepicker($.datepicker.regional['sv']);
-        });
+        });*/
     </script>

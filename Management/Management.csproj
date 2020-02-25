@@ -234,6 +234,7 @@
     <Compile Include="Controllers\OutlookController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\PictureController.cs" />
+    <Compile Include="Controllers\RaspberryController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReportServerController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
@@ -378,6 +379,7 @@
     <Compile Include="Models\PowerbiTypes.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Raspberry.cs" />
     <Compile Include="Models\RenderModes.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
@@ -820,6 +822,7 @@
     <Content Include="Views\UsersAdmin\Edit.cshtml" />
     <Content Include="Views\UsersAdmin\Index.cshtml" />
     <Content Include="Views\Shared\_frameLevels.cshtml" />
+    <Content Include="Views\Raspberry\Index.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

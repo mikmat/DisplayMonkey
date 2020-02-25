@@ -1279,9 +1279,20 @@ ul.options input[type=checkbox] {
     display: block;
 }
 
+.editor-label2 {
+    float: left;
+    margin-right: 10px;
+    width: 402px;
+    text-align: right;
+}
+
 .editor-label {
     float: left;
     margin-right: 10px;
     width: 100px;
     text-align: right;
-} 
+}
+
+.raspbad {
+    color:red;
+}

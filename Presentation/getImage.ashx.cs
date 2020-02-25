@@ -20,6 +20,8 @@ using System.Drawing.Imaging;
 using DisplayMonkey.Models;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace DisplayMonkey
 {
@@ -87,6 +89,39 @@ namespace DisplayMonkey
 
                 else if (contentId != 0)
                 {
+                    if (contentId == 8) //Check if we should replace content with PEKÅS background.
+                    {
+                        try
+                        {
+
+                            string DisplayId = request.UrlReferrer.Query.Split('=')[1];
+                            string LevelId = "";
+
+                            using (SqlCommand dispcmd = new SqlCommand()
+                            {
+                                CommandType = CommandType.Text,
+                                CommandText = "select top 1  L.LevelId from Display D join Location L on d.LocationId = L.LocationId where DisplayId = @displayId",
+
+                            })
+                            {
+                                dispcmd.Parameters.AddWithValue("@displayId", DisplayId);
+                                dispcmd.ExecuteReaderExt((dispdr) =>
+                                {
+                                    LevelId = Convert.ToString(dispdr.IntOrZero("LevelId"));
+                                    return false;
+                                });
+                            }
+
+                            if (LevelId == "3" || LevelId == "12") //Detta är en Pekås, därför ska vi ha röd bakgrund.
+                                contentId = 11;
+                        }
+                        catch (Exception Ex)
+                        {
+                            Console.WriteLine(Ex);
+                            throw;
+                        }
+                    }
+
                     data = await HttpRuntime.Cache.GetOrAddSlidingAsync(
                         string.Format("image_{0}_{1}x{2}_{3}", contentId, -1, -1, (int)RenderModes.RenderMode_Crop),
                         async (expire) =>
@@ -102,7 +137,9 @@ namespace DisplayMonkey
                                 return trg.GetBuffer();
                             }
                         });
+                    
                 }
+
 
                 if (data != null)
                 {
