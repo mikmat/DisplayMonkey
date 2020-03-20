@@ -1,0 +1,98 @@
+﻿@model IEnumerable<DisplayMonkey.Models.Schedule>
+
+@{
+    ViewBag.Title = "Scheman";
+    const string sep = "| ";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Skapa nytt Schema", "Create")
+</p>
+
+<table class="grid">
+    <tr>
+        <th class="nw">
+            ID
+        </th>
+        <th>
+            Namn
+        </th>
+        <th class="nw">
+            Starttid
+        </th>
+        <th class="nw">
+            Sluttid
+        </th>
+        <th class="nw">
+            Måndag
+        </th>
+        <th class="nw">
+            Tisdag
+        </th>
+        <th class="nw">
+            Onsdag
+        </th>
+        <th class="nw">
+            Torsdag
+        </th>
+        <th class="nw">
+            Fredag
+        </th>
+        <th class="nw">
+            Lördag
+        </th>
+        <th class="nw">
+            Söndag
+        </th>
+        <th class="nw">
+        </th>
+
+    </tr>
+
+@foreach (var item in Model)
+{
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ScheduleId)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.ScheduleName)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.StartTime)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.EndTime)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.Mon)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.Tue)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.Wed)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.Thu)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.Fri)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.Sat)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.Sun)
+    </td>
+   
+    <td class="nw">
+       @Html.ActionLink(Resources.Edit, "Edit", "Schedule", new { id = item.ScheduleId }, null)
+       @sep @Html.ActionLink(Resources.Delete, "Delete", "Schedule", new { id = item.ScheduleId }, null)
+    </td>
+</tr>
+}
+
+</table>

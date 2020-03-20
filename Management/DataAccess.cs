@@ -252,6 +252,12 @@ namespace DisplayMonkey
             return DbValueOrDefault<DateTime>(reader[column], _default);
         }
 
+        public static TimeSpan TimeOrDefault(this SqlDataReader reader, string column, TimeSpan _default)
+        {
+            TimeSpan sp = new TimeSpan(0, 0, 0);
+            return DbValueOrDefault<TimeSpan>(reader[column], _default);
+        }
+
         #endregion // Value helper extensions  //////////////////////////////////////////////
 
         #region Private Members //////////////////////////////////////////////

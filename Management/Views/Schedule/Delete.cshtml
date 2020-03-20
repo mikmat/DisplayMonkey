@@ -1,0 +1,115 @@
+﻿@model DisplayMonkey.Models.Schedule
+
+@{
+    ViewBag.Title = "Rasera Schema";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Är du säker på att du vill radera detta schema?</h3>
+
+<fieldset>
+    <table class="grid">
+        <tr>
+            <th class="nw">
+                ID
+            </th>
+            <th>
+                Namn
+            </th>
+            <th class="nw">
+                Starttid
+            </th>
+            <th class="nw">
+                Sluttid
+            </th>
+            <th class="nw">
+                Måndag
+            </th>
+            <th class="nw">
+                Tisdag
+            </th>
+            <th class="nw">
+                Onsdag
+            </th>
+            <th class="nw">
+                Torsdag
+            </th>
+            <th class="nw">
+                Fredag
+            </th>
+            <th class="nw">
+                Lördag
+            </th>
+            <th class="nw">
+                Söndag
+            </th>
+            <th class="nw">
+            </th>
+
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(Model => Model.ScheduleId)
+            </td>
+            <td class="nw">
+                @Html.DisplayFor(Model => Model.ScheduleName)
+            </td>
+            <td class="nw">
+                @Html.DisplayFor(Model => Model.StartTime)
+            </td>
+            <td class="nw">
+                @Html.DisplayFor(Model => Model.EndTime)
+            </td>
+            <td class="nw">
+                @Html.DisplayFor(Model => Model.Mon)
+            </td>
+            <td class="nw">
+                @Html.DisplayFor(Model => Model.Tue)
+            </td>
+            <td class="nw">
+                @Html.DisplayFor(Model => Model.Wed)
+            </td>
+            <td class="nw">
+                @Html.DisplayFor(Model => Model.Thu)
+            </td>
+            <td class="nw">
+                @Html.DisplayFor(Model => Model.Fri)
+            </td>
+            <td class="nw">
+                @Html.DisplayFor(Model => Model.Sat)
+            </td>
+            <td class="nw">
+                @Html.DisplayFor(Model => Model.Sun)
+            </td>
+        </tr>
+    </table>
+</fieldset>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.Referrer()
+<p>
+    @Html.HiddenFor(p => p.ScheduleId)
+    @Html.HiddenFor(p => p.ScheduleName)
+    @Html.HiddenFor(p => p.StartTime)
+    @Html.HiddenFor(p => p.EndTime)
+    @Html.HiddenFor(p => p.Mon)
+    @Html.HiddenFor(p => p.Tue)
+    @Html.HiddenFor(p => p.Wed)
+    @Html.HiddenFor(p => p.Thu)
+    @Html.HiddenFor(p => p.Fri)
+    @Html.HiddenFor(p => p.Sat)
+    @Html.HiddenFor(p => p.Sun)
+    <input type="submit" value="@Resources.Delete" /> |
+    @Html.ActionLink("Scheman", "Index")
+</p>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jsquery")
+
+}

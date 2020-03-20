@@ -212,6 +212,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\FrameScheduleController.cs" />
     <Compile Include="Controllers\InitAdminController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OauthAccountController.cs" />
@@ -234,6 +235,7 @@
     <Compile Include="Controllers\OutlookController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\PictureController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\RaspberryController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReportServerController.cs" />
@@ -379,6 +381,8 @@
     <Compile Include="Models\PowerbiTypes.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FrameSchedule.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Raspberry.cs" />
     <Compile Include="Models\RenderModes.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
@@ -823,6 +827,19 @@
     <Content Include="Views\UsersAdmin\Index.cshtml" />
     <Content Include="Views\Shared\_frameLevels.cshtml" />
     <Content Include="Views\Raspberry\Index.cshtml" />
+    <Content Include="Views\Schedule\SortFrames.cshtml" />
+    <Content Include="Views\Schedule\_Details.cshtml" />
+    <Content Include="Views\Schedule\Create.cshtml" />
+    <Content Include="Views\Schedule\Delete.cshtml" />
+    <Content Include="Views\Schedule\Details.cshtml" />
+    <Content Include="Views\Schedule\Edit.cshtml" />
+    <Content Include="Views\Schedule\EditFS.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\Shared\_frameSchedules.cshtml" />
+    <Content Include="Views\FrameSchedule\Attach.cshtml" />
+    <Content Include="Views\FrameSchedule\Detach.cshtml" />
+    <Content Include="Views\Frame\Attach_schedule.cshtml" />
+    <Content Include="Views\Frame\Detach_schedule.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

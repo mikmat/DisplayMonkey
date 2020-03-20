@@ -169,6 +169,7 @@ namespace DisplayMonkey.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public ActionResult Edit(Location location)
         {
             if (ModelState.IsValid)

@@ -35,13 +35,33 @@ namespace DisplayMonkey.Controllers
                 using (SqlCommand dispcmd = new SqlCommand()
                 {
                     CommandType = CommandType.Text,
-                    CommandText = "SELECT * FROM RaspberryList ORDER BY hostname",
+                    CommandText = "SELECT * FROM RaspberryList ORDER BY updated, hostname",
 
                 })
                 {
 
                     dispcmd.ExecuteReaderExt((dispdr) =>
                     {
+                        mac = dispdr.StringOrBlank("mac");
+                        hostname = dispdr.StringOrBlank("hostname");
+                        ip = dispdr.StringOrBlank("ip");
+                        updated = dispdr.DateTimeOrBlank("updated");
+                        temperature = dispdr.DecimalOrZero("temperature");
+                        firstseen = dispdr.DateTimeOrBlank("firstseen");
+                        disabled = dispdr.IntOrZero("disabled");
+
+                        Raspberry rasp = new Raspberry
+                        {
+                            mac = mac,
+                            hostname = hostname,
+                            ip = ip,
+                            updated = updated,
+                            temperature = temperature,
+                            firstseen = firstseen,
+                            disabled = disabled
+                        };
+
+                        raspberries.Add(rasp);
                         while (dispdr.Read())
                         {
                             mac = dispdr.StringOrBlank("mac");
@@ -52,7 +72,7 @@ namespace DisplayMonkey.Controllers
                             firstseen = dispdr.DateTimeOrBlank("firstseen");
                             disabled = dispdr.IntOrZero("disabled");
 
-                            Raspberry rasp = new Raspberry
+                            rasp = new Raspberry
                             {
                                 mac = mac,
                                 hostname = hostname,

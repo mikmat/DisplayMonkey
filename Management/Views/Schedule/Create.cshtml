@@ -1,0 +1,110 @@
+﻿@model DisplayMonkey.Models.Schedule
+
+@{
+    ViewBag.Title = Resources.CreateNewPanel;
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.Referrer()
+
+    <fieldset>
+        <legend>RedigeraSchema</legend>
+        <table>
+            <tr>
+                <td>
+                    @Html.HiddenFor(model => model.ScheduleId)
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ScheduleName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ScheduleName)
+                        @Html.ValidationMessageFor(model => model.ScheduleName)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.StartTime)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.StartTime)
+                        @Html.ValidationMessageFor(model => model.StartTime)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.EndTime)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.EndTime)
+                        @Html.ValidationMessageFor(model => model.EndTime)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Mon)
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.Mon)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Tue)
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.Tue)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Wed)
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.Wed)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Thu)
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.Thu)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Fri)
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.Fri)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Sat)
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.Sat)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Sun)
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.Sun)
+                    </div>
+
+                    <p>
+                        <input type="submit" value="@Resources.Create" />
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink(Resources.ViewPanels, "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jsquery")
+}

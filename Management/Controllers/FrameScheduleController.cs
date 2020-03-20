@@ -22,7 +22,7 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace DisplayMonkey.Controllers
 {
-    public class FrameController : BaseController
+    public class FrameScheduleController : BaseController
     {
         private DisplayMonkeyEntities db = new DisplayMonkeyEntities();
 
@@ -508,75 +508,6 @@ namespace DisplayMonkey.Controllers
         {
             db.Dispose();
             base.Dispose(disposing);
-        }
-
-
-        //
-        // GET: /Frame/Attach/5
-        [AllowAnonymous]
-        public ActionResult Attach_schedule(int id = 0)
-        {
-            Frame frame = db.Frames.Find(id);
-            if (frame == null)
-            {
-                return View("Missing", new MissingItem(id));
-            }
-
-            LocationSelector selector = new LocationSelector
-            {
-                FrameId = id,
-            };
-
-            var locations = db.Schedules
-                .Where(l => !db.Frames
-                    .FirstOrDefault(f => f.FrameId == selector.FrameId)
-                    .Locations.Any(fl => fl.LocationId == l.LocationId))
-                    .Include(l => l.Level)
-                    .Select(l => new
-                    {
-                        LocationId = l.LocationId,
-                        Name = l.Level.Name + " : " + l.Name
-                    })
-                    .OrderBy(l => l.Name)
-                    .ToList()
-                ;
-            ViewBag.Locations = new SelectList(locations, "LocationId", "Name");
-
-            return View(selector);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        public ActionResult Attach_Schedule(LocationSelector selector)
-        {
-            Frame frame = db.Frames.Find(selector.FrameId);
-            if (frame == null)
-            {
-                return View("Missing", new MissingItem(selector.FrameId));
-            }
-
-            if (selector.LocationId > 0)
-            {
-                Location location = db.Locations.Find(selector.LocationId);
-                if (location == null)
-                {
-                    return View("Missing", new MissingItem(selector.LocationId, "Location"));
-                }
-                frame.Locations.Add(location);
-                db.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
-
-            IEnumerable<Location> locations = db.Locations
-                .Where(l => !db.Frames
-                    .FirstOrDefault(f => f.FrameId == selector.FrameId)
-                    .Locations.Any(fl => fl.LocationId == l.LocationId))
-                ;
-            ViewBag.Locations = new SelectList(db.Locations, "LocationId", "Name");
-
-            return View(selector);
         }
     }
 }

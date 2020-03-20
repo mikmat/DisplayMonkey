@@ -147,15 +147,15 @@ namespace DisplayMonkey
                             "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\"> ";
                             if (Convert.ToDecimal(Koncept_dag) < 100)
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">trending_down</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
                             }
                             else if (Convert.ToDecimal(Koncept_dag) > 100)
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">trending_up</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
                             }
                             else
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">trending_flat</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
                             }
                             outstring += "</td> " +
                             "<td style=\"width: 450px; height: 23px;\">" +
@@ -164,15 +164,15 @@ namespace DisplayMonkey
                             "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
                             if (Convert.ToDecimal(Butik_dag) < 100)
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">trending_down</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
                             }
                             else if (Convert.ToDecimal(Butik_dag) > 100)
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">trending_up</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
                             }
                             else
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">trending_flat</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
                             }
                             outstring += "</td>  " +
                             "<td style=\"width: 450px; height: 23px;\">" +
@@ -182,15 +182,15 @@ namespace DisplayMonkey
 
                             if (Convert.ToDecimal(Marginalkronor) < 100)
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">trending_down</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
                             }
                             else if (Convert.ToDecimal(Marginalkronor) > 100)
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">trending_up</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
                             }
                             else
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">trending_flat</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
                             }
                             outstring += "</td>  " +
                             "<td style=\"width: 450px; height: 23px;\">" +
@@ -199,15 +199,15 @@ namespace DisplayMonkey
                             "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
                             if (Convert.ToDecimal(Antal_kunder) < 100)
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">trending_down</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
                             }
                             else if (Convert.ToDecimal(Antal_kunder) > 100)
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">trending_up</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
                             }
                             else
                             {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">trending_flat</em>";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
                             }
                             outstring += "</td>  " +
                             "<td style=\"width: 550px; height: 23px;\">" +
@@ -369,15 +369,15 @@ namespace DisplayMonkey
                                 "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
                                 if (Convert.ToDecimal(Butik_dag) < 100)
                                 {
-                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">trending_down</em>";
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
                                 }
                                 else if (Convert.ToDecimal(Butik_dag) > 100)
                                 {
-                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">trending_up</em>";
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
                                 }
                                 else
                                 {
-                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">trending_flat</em>";
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
                                 }
                                 outstring += "</td>  " +
                                 "<td style=\"width: 450px; height: 23px;\">" +
@@ -387,15 +387,15 @@ namespace DisplayMonkey
 
                                 if (Convert.ToDecimal(Marginalkronor) < 100)
                                 {
-                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">trending_down</em>";
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
                                 }
                                 else if (Convert.ToDecimal(Marginalkronor) > 100)
                                 {
-                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">trending_up</em>";
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
                                 }
                                 else
                                 {
-                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">trending_flat</em>";
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
                                 }
                                 outstring += "</td>  " +
                                 "<td style=\"width: 450px; height: 23px;\">" +
@@ -404,15 +404,15 @@ namespace DisplayMonkey
                                 "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
                                 if (Convert.ToDecimal(Antal_kunder) < 100)
                                 {
-                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">trending_down</em>";
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
                                 }
                                 else if (Convert.ToDecimal(Antal_kunder) > 100)
                                 {
-                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">trending_up</em>";
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
                                 }
                                 else
                                 {
-                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">trending_flat</em>";
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
                                 }
                                 outstring += "</td>  " +
                                 "<td style=\"width: 550px; height: 23px;\">" +
