@@ -19,6 +19,7 @@ namespace DisplayMonkey.Models
             this.Displays = new HashSet<Display>();
             this.Frames = new HashSet<Frame>();
             this.Sublocations = new HashSet<Location>();
+            this.CoopStores = new HashSet<CoopStore>();
         }
     
         public int LocationId { get; set; }
@@ -40,5 +41,6 @@ namespace DisplayMonkey.Models
         public virtual ICollection<Frame> Frames { get; set; }
         public virtual ICollection<Location> Sublocations { get; set; }
         public virtual Location Area { get; set; }
+        public virtual ICollection<CoopStore> CoopStores { get; set; }
     }
 }

@@ -1790,4 +1790,22 @@
   <data name="ExpirationStatus" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="DesignateSchedule" xml:space="preserve">
+    <value>Designate Schedule</value>
+  </data>
+  <data name="ScheduleName" xml:space="preserve">
+    <value>Schedule name</value>
+  </data>
+  <data name="AreYouSureYouWantToRemoveScheduleFromThisFrame" xml:space="preserve">
+    <value>Are your sure you want to remove schedule from this frame?</value>
+  </data>
+  <data name="DesignatedLocation" xml:space="preserve">
+    <value>Designate Location</value>
+  </data>
+  <data name="RemoveSchedule" xml:space="preserve">
+    <value>Remove Schedule</value>
+  </data>
+  <data name="ScheduleNameRequired" xml:space="preserve">
+    <value>Schedule name required</value>
+  </data>
 </root>

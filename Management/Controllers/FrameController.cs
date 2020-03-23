@@ -504,6 +504,41 @@ namespace DisplayMonkey.Controllers
             return RedirectToAction("Index");
         }
 
+
+        //
+        // GET: /Frame/Detach/5
+        [AllowAnonymous]
+        public ActionResult Detach_schedule(int id = 0, int scheduleId = 0)
+        {
+            Frame frame = db.Frames.Find(id);
+            if (frame == null)
+            {
+                return View("Missing", new MissingItem(id));
+            }
+
+            ScheduleSelector selector = new ScheduleSelector
+            {
+                FrameId = id,
+                ScheduleId = scheduleId,
+                ScheduleName = db.Schedules.Find(scheduleId).ScheduleName,
+            };
+
+            return View(selector);
+        }
+
+        [HttpPost, ActionName("Detach_schedule")]
+        [ValidateAntiForgeryToken]
+        [AllowAnonymous]
+        public ActionResult Detach_scheduleConfirmed(int id, int scheduleId)
+        {
+            Frame frame = db.Frames.Find(id);
+            Schedule schedule = db.Schedules.Find(scheduleId);
+            frame.Schedules.Remove(schedule);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
@@ -522,25 +557,25 @@ namespace DisplayMonkey.Controllers
                 return View("Missing", new MissingItem(id));
             }
 
-            LocationSelector selector = new LocationSelector
+            ScheduleSelector selector = new ScheduleSelector
             {
                 FrameId = id,
             };
 
-            var locations = db.Schedules
+            var schedules = db.Schedules
                 .Where(l => !db.Frames
                     .FirstOrDefault(f => f.FrameId == selector.FrameId)
-                    .Locations.Any(fl => fl.LocationId == l.LocationId))
-                    .Include(l => l.Level)
+                    .Schedules.Any(fl => fl.ScheduleId == l.ScheduleId))
+                    //.Include(l => l.Level)
                     .Select(l => new
                     {
-                        LocationId = l.LocationId,
-                        Name = l.Level.Name + " : " + l.Name
+                        l.ScheduleId,
+                        Name = l.ScheduleName
                     })
                     .OrderBy(l => l.Name)
                     .ToList()
                 ;
-            ViewBag.Locations = new SelectList(locations, "LocationId", "Name");
+            ViewBag.Schedules = new SelectList(schedules, "ScheduleId", "Name");
 
             return View(selector);
         }
@@ -548,7 +583,7 @@ namespace DisplayMonkey.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Attach_Schedule(LocationSelector selector)
+        public ActionResult Attach_Schedule(ScheduleSelector selector)
         {
             Frame frame = db.Frames.Find(selector.FrameId);
             if (frame == null)
@@ -556,25 +591,25 @@ namespace DisplayMonkey.Controllers
                 return View("Missing", new MissingItem(selector.FrameId));
             }
 
-            if (selector.LocationId > 0)
+            if (selector.ScheduleId > 0)
             {
-                Location location = db.Locations.Find(selector.LocationId);
-                if (location == null)
+                Schedule schedule = db.Schedules.Find(selector.ScheduleId);
+                if (schedule == null)
                 {
-                    return View("Missing", new MissingItem(selector.LocationId, "Location"));
+                    return View("Missing", new MissingItem(selector.ScheduleId, "Schedule"));
                 }
-                frame.Locations.Add(location);
+                frame.Schedules.Add(schedule);
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            IEnumerable<Location> locations = db.Locations
+            IEnumerable<Schedule> schedules = db.Schedules
                 .Where(l => !db.Frames
                     .FirstOrDefault(f => f.FrameId == selector.FrameId)
-                    .Locations.Any(fl => fl.LocationId == l.LocationId))
+                    .Locations.Any(fl => fl.LocationId == l.ScheduleId))
                 ;
-            ViewBag.Locations = new SelectList(db.Locations, "LocationId", "Name");
+            ViewBag.Locations = new SelectList(db.Schedules, "ScheduleId", "Name");
 
             return View(selector);
         }

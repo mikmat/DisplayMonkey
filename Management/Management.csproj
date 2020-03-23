@@ -300,6 +300,15 @@
     <Compile Include="Models\ContentTypes.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CoopSale.cs">
+      <DependentUpon>DMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CoopStore.cs">
+      <DependentUpon>DMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>DMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Display.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
@@ -381,8 +390,12 @@
     <Compile Include="Models\PowerbiTypes.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FrameSchedule.cs" />
-    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\RaspberryList.cs">
+      <DependentUpon>DMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Schedule.cs">
+      <DependentUpon>DMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Raspberry.cs" />
     <Compile Include="Models\RenderModes.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
@@ -400,6 +413,9 @@
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Template.cs">
+      <DependentUpon>DMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
       <DependentUpon>DMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Video.cs">
@@ -840,6 +856,7 @@
     <Content Include="Views\FrameSchedule\Detach.cshtml" />
     <Content Include="Views\Frame\Attach_schedule.cshtml" />
     <Content Include="Views\Frame\Detach_schedule.cshtml" />
+    <Content Include="Views\Templog\Edit.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -1067,7 +1084,6 @@
     <Folder Include="Doc\" />
     <Folder Include="Migrations\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Templog\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

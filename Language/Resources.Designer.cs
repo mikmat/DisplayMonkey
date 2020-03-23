@@ -223,6 +223,15 @@ namespace DisplayMonkey.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are your sure you want to remove schedule from this frame?.
+        /// </summary>
+        public static string AreYouSureYouWantToRemoveScheduleFromThisFrame {
+            get {
+                return ResourceManager.GetString("AreYouSureYouWantToRemoveScheduleFromThisFrame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to remove this display.
         /// </summary>
         public static string AreYouSureYouWantToRemoveThisDisplay {
@@ -1432,6 +1441,15 @@ namespace DisplayMonkey.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Designate Location.
+        /// </summary>
+        public static string DesignatedLocation {
+            get {
+                return ResourceManager.GetString("DesignatedLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Designated locations.
         /// </summary>
         public static string DesignatedLocations {
@@ -1446,6 +1464,15 @@ namespace DisplayMonkey.Language {
         public static string DesignateLocation {
             get {
                 return ResourceManager.GetString("DesignateLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Designate Schedule.
+        /// </summary>
+        public static string DesignateSchedule {
+            get {
+                return ResourceManager.GetString("DesignateSchedule", resourceCulture);
             }
         }
         
@@ -3548,6 +3575,15 @@ namespace DisplayMonkey.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove Schedule.
+        /// </summary>
+        public static string RemoveSchedule {
+            get {
+                return ResourceManager.GetString("RemoveSchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Render mode.
         /// </summary>
         public static string RenderMode {
@@ -3706,6 +3742,24 @@ namespace DisplayMonkey.Language {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Schedule name.
+        /// </summary>
+        public static string ScheduleName {
+            get {
+                return ResourceManager.GetString("ScheduleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Schedule name required.
+        /// </summary>
+        public static string ScheduleNameRequired {
+            get {
+                return ResourceManager.GetString("ScheduleNameRequired", resourceCulture);
             }
         }
         

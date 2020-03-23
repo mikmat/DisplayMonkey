@@ -9,7 +9,7 @@
 @Html.Partial("_Details")
 
 <p>
-    @Html.ActionLink(Resources.Edit, "Edit", "Frame", new { id=Model.FrameId }, null) |
+    @Html.ActionLink(Resources.Edit, "Edit", "Frame", new { id = Model.FrameId }, null) |
     @Html.ActionLink(Resources.ViewFrames, "Index", "Frame")
 </p>
 
@@ -18,4 +18,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/powerbi-preview")
+    @Html.Partial("_frameSchedules", Model as Frame)
 }

@@ -1800,4 +1800,19 @@
   <data name="CoopSales" xml:space="preserve">
     <value>Coop Försäljning</value>
   </data>
+  <data name="DesignateSchedule" xml:space="preserve">
+    <value>Tilldela Schema</value>
+  </data>
+  <data name="ScheduleName" xml:space="preserve">
+    <value>Schemanamn</value>
+  </data>
+  <data name="AreYouSureYouWantToRemoveScheduleFromThisFrame" xml:space="preserve">
+    <value>Är du säker på att du vill radera schemat från den här sidan?</value>
+  </data>
+  <data name="RemoveSchedule" xml:space="preserve">
+    <value>Ta bort Schema</value>
+  </data>
+  <data name="ScheduleNameRequired" xml:space="preserve">
+    <value>Schemanamn krävs</value>
+  </data>
 </root>

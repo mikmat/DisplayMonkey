@@ -12,18 +12,15 @@ namespace DisplayMonkey.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Level
+    public partial class CoopSale
     {
-        public Level()
-        {
-            this.Locations = new HashSet<Location>();
-            this.Frames = new HashSet<Frame>();
-        }
-    
-        public int LevelId { get; set; }
-        public string Name { get; set; }
-    
-        public virtual ICollection<Location> Locations { get; set; }
-        public virtual ICollection<Frame> Frames { get; set; }
+        public string Datum { get; set; }
+        public int Butik { get; set; }
+        public Nullable<decimal> Koncept_dag { get; set; }
+        public Nullable<decimal> Butik_dag { get; set; }
+        public Nullable<decimal> Marginalkronor { get; set; }
+        public Nullable<decimal> Snittköp { get; set; }
+        public Nullable<decimal> Antal_kunder { get; set; }
+        public Nullable<decimal> Fys { get; set; }
     }
 }

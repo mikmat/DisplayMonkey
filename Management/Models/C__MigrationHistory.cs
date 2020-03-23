@@ -12,18 +12,10 @@ namespace DisplayMonkey.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Level
+    public partial class C__MigrationHistory
     {
-        public Level()
-        {
-            this.Locations = new HashSet<Location>();
-            this.Frames = new HashSet<Frame>();
-        }
-    
-        public int LevelId { get; set; }
-        public string Name { get; set; }
-    
-        public virtual ICollection<Location> Locations { get; set; }
-        public virtual ICollection<Frame> Frames { get; set; }
+        public string MigrationId { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

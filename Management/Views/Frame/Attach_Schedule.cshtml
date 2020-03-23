@@ -1,7 +1,7 @@
-﻿@model DisplayMonkey.Models.LocationSelector
+﻿@model DisplayMonkey.Models.ScheduleSelector
 
 @{
-    ViewBag.Title = Resources.DesignateLocation;
+    ViewBag.Title = Resources.DesignateSchedule;
 }
 
 <h2>@ViewBag.Title</h2>
@@ -17,10 +17,10 @@
         @Html.HiddenFor(m => m.FrameId)
         
         <div class="editor-label">
-            @Html.LabelFor(l => l.LocationId)
+            @Html.LabelFor(s=>s.ScheduleId)
         </div>
         <div class="editor-field select">
-            @Html.DropDownListFor(l => l.LocationId, ViewBag.Locations as SelectList)
+            @Html.DropDownListFor(l => l.ScheduleId, ViewBag.Schedules as SelectList)
         </div>
 
         <p>

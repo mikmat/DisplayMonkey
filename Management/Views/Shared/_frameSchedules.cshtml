@@ -5,7 +5,7 @@
 
 @Html.ActionLink("Tilldela schema", "Attach_schedule", "Frame", new { id = Model.FrameId }, null)
 
-@if (Model.FrameSchedules.Count == 0)
+@if (Model.Schedules.Count == 0)
 {
 <p>Visas enligt datuminställningar</p>
 }
@@ -15,32 +15,20 @@ else
 
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FrameSchedules.FirstOrDefault().ID)
+            @Html.DisplayNameFor(model => model.Schedules.FirstOrDefault().ScheduleId)
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.FrameSchedules.FirstOrDefault().Frame2Id)
+            @Html.DisplayNameFor(model => model.Schedules.FirstOrDefault().ScheduleName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FrameSchedules.FirstOrDefault().ScheduleId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FrameSchedules.FirstOrDefault().ScheduleName)
-        </th>
+       
         <th></th>
     </tr>
 
-    @foreach (var item in Model.FrameSchedules)
+    @foreach (var item in Model.Schedules)
     {
 <tr>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.ID)
-    </td>
-
-    <td>
-        @Html.DisplayFor(modelItem => item.Frame2Id)
-    </td>
     <td>
         @Html.DisplayFor(modelItem => item.ScheduleId)
     </td>
@@ -49,7 +37,12 @@ else
         @Html.DisplayFor(modelItem => item.ScheduleName)
     </td>
     <td>
-        @Html.ActionLink(Resources.Remove, "Detach", "FrameSchedule", new { id = item.ID }, null)
+        @Html.DisplayFor(modelItem => item.ScheduleId)
+    </td>
+
+    <td>
+        @Html.ActionLink(Resources.Remove, "Detach_schedule", "Frame", new { id = Model.FrameId, scheduleId = item.ScheduleId }, null)
+ 
     </td>
 </tr>
     }

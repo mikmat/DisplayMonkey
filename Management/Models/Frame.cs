@@ -17,7 +17,8 @@ namespace DisplayMonkey.Models
         public Frame()
         {
             this.Locations = new HashSet<Location>();
-            this.FrameSchedules = new HashSet<FrameSchedule>();
+            this.Schedules = new HashSet<Schedule>();
+            this.Levels = new HashSet<Level>();
         }
     
         public int FrameId { get; set; }
@@ -30,10 +31,12 @@ namespace DisplayMonkey.Models
         public byte[] Version { get; protected set; }
         public int TemplateId { get; set; }
         public int CacheInterval { get; set; }
-        public int ExpirationStatus { get; set; }    
+        public int ExpirationStatus { get; set; }
+    
         public virtual Panel Panel { get; set; }
         public virtual ICollection<Location> Locations { get; set; }
         public virtual Template Template { get; set; }
-        public virtual ICollection<FrameSchedule> FrameSchedules { get; set; }
+        public virtual ICollection<Schedule> Schedules { get; set; }
+        public virtual ICollection<Level> Levels { get; set; }
     }
 }

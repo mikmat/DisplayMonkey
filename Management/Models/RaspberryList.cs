@@ -12,18 +12,14 @@ namespace DisplayMonkey.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Level
+    public partial class RaspberryList
     {
-        public Level()
-        {
-            this.Locations = new HashSet<Location>();
-            this.Frames = new HashSet<Frame>();
-        }
-    
-        public int LevelId { get; set; }
-        public string Name { get; set; }
-    
-        public virtual ICollection<Location> Locations { get; set; }
-        public virtual ICollection<Frame> Frames { get; set; }
+        public string mac { get; set; }
+        public string hostname { get; set; }
+        public string ip { get; set; }
+        public Nullable<System.DateTime> updated { get; set; }
+        public Nullable<decimal> temperature { get; set; }
+        public Nullable<System.DateTime> firstseen { get; set; }
+        public Nullable<int> disabled { get; set; }
     }
 }

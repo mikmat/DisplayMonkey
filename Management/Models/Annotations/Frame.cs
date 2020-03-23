@@ -277,6 +277,21 @@ namespace DisplayMonkey.Models
         public string LocationName { get; set; }
     }
 
+    public class ScheduleSelector : Frame
+    {
+        [
+            Display(ResourceType = typeof(Resources), Name = "ID"),
+            Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "IDRequired"),
+        ]
+        public int ScheduleId { get; set; }
+
+        [
+            Display(ResourceType = typeof(Resources), Name = "ScheduleName"),
+            Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "ScheduleNameRequired"),
+        ]
+        public string ScheduleName { get; set; }
+    }
+
     public class TopContent
     {
         [

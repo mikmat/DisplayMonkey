@@ -53,7 +53,7 @@ namespace DisplayMonkey.Controllers
         }
 
         // GET: Templog/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id = 0)
         {
             return View();
         }

@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DisplayMonkey.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
         <EntityType Name="AzureAccount">
           <Key>
             <PropertyRef Name="AccountId" />
@@ -56,6 +64,29 @@
           <Property Name="Type" Type="int" Nullable="false" />
           <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DisplayMonkey.dbo.CoopSales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CoopSales">
+          <Key>
+            <PropertyRef Name="Datum" />
+            <PropertyRef Name="Butik" />
+          </Key>
+          <Property Name="Datum" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Butik" Type="int" Nullable="false" />
+          <Property Name="Koncept_dag" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Butik_dag" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Marginalkronor" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Snittköp" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Antal_kunder" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Fys" Type="decimal" Precision="8" Scale="2" />
+        </EntityType>
+        <EntityType Name="CoopStores">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="LocationId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Display">
           <Key>
             <PropertyRef Name="DisplayId" />
@@ -99,6 +130,14 @@
           <Property Name="TemplateId" Type="int" Nullable="false" />
           <Property Name="CacheInterval" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="FrameLevel">
+          <Key>
+            <PropertyRef Name="FrameId" />
+            <PropertyRef Name="LevelId" />
+          </Key>
+          <Property Name="FrameId" Type="int" Nullable="false" />
+          <Property Name="LevelId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="FrameLocation">
           <Key>
             <PropertyRef Name="FrameId" />
@@ -106,6 +145,14 @@
           </Key>
           <Property Name="FrameId" Type="int" Nullable="false" />
           <Property Name="LocationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FrameSchedule">
+          <Key>
+            <PropertyRef Name="FrameId" />
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="FrameId" Type="int" Nullable="false" />
+          <Property Name="ScheduleId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="FullScreen">
           <Key>
@@ -183,9 +230,9 @@
           <Property Name="Mailbox" Type="varchar" MaxLength="100" />
           <Property Name="ShowEvents" Type="int" Nullable="false" />
           <Property Name="AccountId" Type="int" Nullable="false" />
-          <Property Name="Privacy" Type="int" Nullable="false" />
           <Property Name="AllowReserve" Type="bit" Nullable="false" />
           <Property Name="ShowAsFlags" Type="int" Nullable="false" />
+          <Property Name="Privacy" Type="int" Nullable="false" />
           <Property Name="BookingSubject" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Panel">
@@ -221,8 +268,20 @@
           <Property Name="Dashboard" Type="uniqueidentifier" />
           <Property Name="Tile" Type="uniqueidentifier" />
           <Property Name="Report" Type="uniqueidentifier" />
-          <Property Name="Url" Type="varchar" MaxLength="4000" />
           <Property Name="Group" Type="uniqueidentifier" />
+          <Property Name="Url" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="RaspberryList">
+          <Key>
+            <PropertyRef Name="mac" />
+          </Key>
+          <Property Name="mac" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hostname" Type="varchar" MaxLength="50" />
+          <Property Name="ip" Type="varchar" MaxLength="50" />
+          <Property Name="updated" Type="datetime" />
+          <Property Name="temperature" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="firstseen" Type="datetime" />
+          <Property Name="disabled" Type="int" />
         </EntityType>
         <EntityType Name="Report">
           <Key>
@@ -245,6 +304,22 @@
           <Property Name="Password" Type="varbinary" MaxLength="1024" />
           <Property Name="Domain" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScheduleName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Mon" Type="bit" Nullable="false" />
+          <Property Name="Tue" Type="bit" Nullable="false" />
+          <Property Name="Wed" Type="bit" Nullable="false" />
+          <Property Name="Thu" Type="bit" Nullable="false" />
+          <Property Name="Fri" Type="bit" Nullable="false" />
+          <Property Name="Sat" Type="bit" Nullable="false" />
+          <Property Name="Sun" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Settings">
           <Key>
             <PropertyRef Name="Key" />
@@ -261,6 +336,14 @@
           <Property Name="Html" Type="nvarchar(max)" Nullable="false" />
           <Property Name="FrameType" Type="int" Nullable="false" />
           <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="uname" />
+          </Key>
+          <Property Name="uname" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Pwd" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="userRole" Type="varchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <EntityType Name="Video">
           <Key>
@@ -327,6 +410,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CoopStores_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="CoopStores" Type="Self.CoopStores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="CoopStores">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Display_Canvas">
           <End Role="Canvas" Type="Self.Canvas" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -381,6 +476,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FrameLevel_Frame">
+          <End Role="Frame" Type="Self.Frame" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FrameLevel" Type="Self.FrameLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frame">
+              <PropertyRef Name="FrameId" />
+            </Principal>
+            <Dependent Role="FrameLevel">
+              <PropertyRef Name="FrameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FrameLevel_Level">
+          <End Role="Level" Type="Self.Level" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FrameLevel" Type="Self.FrameLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Level">
+              <PropertyRef Name="LevelId" />
+            </Principal>
+            <Dependent Role="FrameLevel">
+              <PropertyRef Name="LevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_FrameLlocation_Location">
           <End Role="Location" Type="Self.Location" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -406,6 +529,34 @@
             </Principal>
             <Dependent Role="FrameLocation">
               <PropertyRef Name="FrameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FrameSchedule_Frame">
+          <End Role="Frame" Type="Self.Frame" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FrameSchedule" Type="Self.FrameSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frame">
+              <PropertyRef Name="FrameId" />
+            </Principal>
+            <Dependent Role="FrameSchedule">
+              <PropertyRef Name="FrameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FrameSchedule_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FrameSchedule" Type="Self.FrameSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="FrameSchedule">
+              <PropertyRef Name="ScheduleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -674,7 +825,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Weather_OauthAccount">
-          <End Role="OauthAccount" Type="Self.OauthAccount" Multiplicity="0..1" />
+          <End Role="OauthAccount" Type="Self.OauthAccount" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Weather" Type="Self.Weather" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OauthAccount">
@@ -700,14 +853,18 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DisplayMonkeyModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AzureAccount" EntityType="Self.AzureAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Canvas" EntityType="Self.Canvas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clock" EntityType="Self.Clock" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CoopStores" EntityType="Self.CoopStores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Display" EntityType="Self.Display" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExchangeAccount" EntityType="Self.ExchangeAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Frame" EntityType="Self.Frame" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FrameLevel" EntityType="Self.FrameLevel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FrameLocation" EntityType="Self.FrameLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FrameSchedule" EntityType="Self.FrameSchedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FullScreen" EntityType="Self.FullScreen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Html" EntityType="Self.Html" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
@@ -719,14 +876,29 @@
           <EntitySet Name="Panel" EntityType="Self.Panel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Powerbi" EntityType="Self.Powerbi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RaspberryList" EntityType="Self.RaspberryList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReportServer" EntityType="Self.ReportServer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Template" EntityType="Self.Template" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VideoAlternative" EntityType="Self.VideoAlternative" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Weather" EntityType="Self.Weather" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Youtube" EntityType="Self.Youtube" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CoopSales" EntityType="Self.CoopSales" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[CoopSales].[Datum] AS [Datum], 
+[CoopSales].[Butik] AS [Butik], 
+[CoopSales].[Koncept_dag] AS [Koncept_dag], 
+[CoopSales].[Butik_dag] AS [Butik_dag], 
+[CoopSales].[Marginalkronor] AS [Marginalkronor], 
+[CoopSales].[Snittköp] AS [Snittköp], 
+[CoopSales].[Antal_kunder] AS [Antal_kunder], 
+[CoopSales].[Fys] AS [Fys]
+FROM [dbo].[CoopSales] AS [CoopSales]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Canvas_Content" Association="Self.FK_Canvas_Content">
             <End Role="Content" EntitySet="Content" />
             <End Role="Canvas" EntitySet="Canvas" />
@@ -734,6 +906,10 @@
           <AssociationSet Name="FK_Clock_Frame" Association="Self.FK_Clock_Frame">
             <End Role="Frame" EntitySet="Frame" />
             <End Role="Clock" EntitySet="Clock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoopStores_Location" Association="Self.FK_CoopStores_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="CoopStores" EntitySet="CoopStores" />
           </AssociationSet>
           <AssociationSet Name="FK_Display_Canvas" Association="Self.FK_Display_Canvas">
             <End Role="Canvas" EntitySet="Canvas" />
@@ -751,6 +927,14 @@
             <End Role="Template" EntitySet="Template" />
             <End Role="Frame" EntitySet="Frame" />
           </AssociationSet>
+          <AssociationSet Name="FK_FrameLevel_Frame" Association="Self.FK_FrameLevel_Frame">
+            <End Role="Frame" EntitySet="Frame" />
+            <End Role="FrameLevel" EntitySet="FrameLevel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FrameLevel_Level" Association="Self.FK_FrameLevel_Level">
+            <End Role="Level" EntitySet="Level" />
+            <End Role="FrameLevel" EntitySet="FrameLevel" />
+          </AssociationSet>
           <AssociationSet Name="FK_FrameLlocation_Location" Association="Self.FK_FrameLlocation_Location">
             <End Role="Location" EntitySet="Location" />
             <End Role="FrameLocation" EntitySet="FrameLocation" />
@@ -758,6 +942,14 @@
           <AssociationSet Name="FK_FrameLocation_Frame" Association="Self.FK_FrameLocation_Frame">
             <End Role="Frame" EntitySet="Frame" />
             <End Role="FrameLocation" EntitySet="FrameLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FrameSchedule_Frame" Association="Self.FK_FrameSchedule_Frame">
+            <End Role="Frame" EntitySet="Frame" />
+            <End Role="FrameSchedule" EntitySet="FrameSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FrameSchedule_Schedule" Association="Self.FK_FrameSchedule_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="FrameSchedule" EntitySet="FrameSchedule" />
           </AssociationSet>
           <AssociationSet Name="FK_FullScreen_Panel" Association="Self.FK_FullScreen_Panel">
             <End Role="Panel" EntitySet="Panel" />
@@ -922,6 +1114,24 @@
             <End Role="OauthAccount" EntitySet="OauthAccounts" />
             <End Role="Weather" EntitySet="Frames" />
           </AssociationSet>
+          <EntitySet Name="CoopStores" EntityType="DisplayMonkey.Model.CoopStore" />
+          <EntitySet Name="RaspberryLists" EntityType="DisplayMonkey.Model.RaspberryList" />
+          <EntitySet Name="Schedules" EntityType="DisplayMonkey.Model.Schedule" />
+          <AssociationSet Name="FK_CoopStores_Location" Association="DisplayMonkey.Model.FK_CoopStores_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="CoopStore" EntitySet="CoopStores" />
+          </AssociationSet>
+          <AssociationSet Name="FrameSchedule" Association="DisplayMonkey.Model.FrameSchedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="Frame" EntitySet="Frames" />
+          </AssociationSet>
+          <EntitySet Name="C__MigrationHistory" EntityType="DisplayMonkey.Model.C__MigrationHistory" />
+          <EntitySet Name="Users" EntityType="DisplayMonkey.Model.User" />
+          <EntitySet Name="CoopSales" EntityType="DisplayMonkey.Model.CoopSale" />
+          <AssociationSet Name="FrameLevel" Association="DisplayMonkey.Model.FrameLevel">
+            <End Role="Frame" EntitySet="Frames" />
+            <End Role="Level" EntitySet="Levels" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Canvas">
           <Key>
@@ -995,6 +1205,8 @@
           <Property Type="Int32" Name="TemplateId" Nullable="false" />
           <Property Type="Int32" Name="CacheInterval" Nullable="false" />
           <NavigationProperty Name="Template" Relationship="DisplayMonkey.Model.FK_Frame_Template" FromRole="Frame" ToRole="Template" />
+          <NavigationProperty Name="Schedules" Relationship="DisplayMonkey.Model.FrameSchedule" FromRole="Frame" ToRole="Schedule" />
+          <NavigationProperty Name="Levels" Relationship="DisplayMonkey.Model.FrameLevel" FromRole="Frame" ToRole="Level" />
         </EntityType>
         <EntityType Name="FullScreen" BaseType="DisplayMonkey.Model.Panel">
           <Property Name="MaxIdleInterval" Type="Int32" />
@@ -1006,6 +1218,7 @@
           <Property Name="LevelId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Locations" Relationship="DisplayMonkey.Model.FK_Location_Level" FromRole="Level" ToRole="Location" />
+          <NavigationProperty Name="Frames" Relationship="DisplayMonkey.Model.FrameLevel" FromRole="Level" ToRole="Frame" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -1029,6 +1242,7 @@
           <Property Type="Binary" Name="Version" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Type="String" Name="Culture" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="TimeZone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CoopStores" Relationship="DisplayMonkey.Model.FK_CoopStores_Location" FromRole="Location" ToRole="CoopStore" />
         </EntityType>
         <EntityType Name="Memo" BaseType="DisplayMonkey.Model.Frame">
           <Property Name="Subject" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
@@ -1450,6 +1664,93 @@
         <EnumType Name="WeatherProviders">
           <Member Name="WeatherProvider_Yahoo" Value="1" />
         </EnumType>
+        <EntityType Name="CoopStore">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="LocationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Location" Relationship="DisplayMonkey.Model.FK_CoopStores_Location" FromRole="CoopStore" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="RaspberryList">
+          <Key>
+            <PropertyRef Name="mac" />
+          </Key>
+          <Property Name="mac" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hostname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <Property Name="temperature" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="firstseen" Type="DateTime" Precision="3" />
+          <Property Name="disabled" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Mon" Type="Boolean" Nullable="false" />
+          <Property Name="Tue" Type="Boolean" Nullable="false" />
+          <Property Name="Wed" Type="Boolean" Nullable="false" />
+          <Property Name="Thu" Type="Boolean" Nullable="false" />
+          <Property Name="Fri" Type="Boolean" Nullable="false" />
+          <Property Name="Sat" Type="Boolean" Nullable="false" />
+          <Property Name="Sun" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Frames" Relationship="DisplayMonkey.Model.FrameSchedule" FromRole="Schedule" ToRole="Frame" />
+        </EntityType>
+        <Association Name="FK_CoopStores_Location">
+          <End Type="DisplayMonkey.Model.Location" Role="Location" Multiplicity="1" />
+          <End Type="DisplayMonkey.Model.CoopStore" Role="CoopStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="CoopStore">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FrameSchedule">
+          <End Type="DisplayMonkey.Model.Schedule" Role="Schedule" Multiplicity="*" />
+          <End Type="DisplayMonkey.Model.Frame" Role="Frame" Multiplicity="*" />
+        </Association>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="uname" />
+          </Key>
+          <Property Name="uname" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Pwd" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="userRole" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CoopSale">
+          <Key>
+            <PropertyRef Name="Datum" />
+            <PropertyRef Name="Butik" />
+          </Key>
+          <Property Name="Datum" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Butik" Type="Int32" Nullable="false" />
+          <Property Name="Koncept_dag" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Butik_dag" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Marginalkronor" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Snittköp" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Antal_kunder" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Fys" Type="Decimal" Precision="8" Scale="2" />
+        </EntityType>
+        <Association Name="FrameLevel">
+          <End Type="DisplayMonkey.Model.Frame" Role="Frame" Multiplicity="*" />
+          <End Type="DisplayMonkey.Model.Level" Role="Level" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1753,6 +2054,92 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CoopStores">
+            <EntityTypeMapping TypeName="DisplayMonkey.Model.CoopStore">
+              <MappingFragment StoreEntitySet="CoopStores">
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RaspberryLists">
+            <EntityTypeMapping TypeName="DisplayMonkey.Model.RaspberryList">
+              <MappingFragment StoreEntitySet="RaspberryList">
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="firstseen" ColumnName="firstseen" />
+                <ScalarProperty Name="temperature" ColumnName="temperature" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="hostname" ColumnName="hostname" />
+                <ScalarProperty Name="mac" ColumnName="mac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="DisplayMonkey.Model.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="Sun" ColumnName="Sun" />
+                <ScalarProperty Name="Sat" ColumnName="Sat" />
+                <ScalarProperty Name="Fri" ColumnName="Fri" />
+                <ScalarProperty Name="Thu" ColumnName="Thu" />
+                <ScalarProperty Name="Wed" ColumnName="Wed" />
+                <ScalarProperty Name="Tue" ColumnName="Tue" />
+                <ScalarProperty Name="Mon" ColumnName="Mon" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="ScheduleName" ColumnName="ScheduleName" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FrameSchedule" TypeName="DisplayMonkey.Model.FrameSchedule" StoreEntitySet="FrameSchedule">
+            <EndProperty Name="Frame">
+              <ScalarProperty Name="FrameId" ColumnName="FrameId" />
+            </EndProperty>
+            <EndProperty Name="Schedule">
+              <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="DisplayMonkey.Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DisplayMonkey.Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userRole" ColumnName="userRole" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="uname" ColumnName="uname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CoopSales">
+            <EntityTypeMapping TypeName="DisplayMonkey.Model.CoopSale">
+              <MappingFragment StoreEntitySet="CoopSales">
+                <ScalarProperty Name="Fys" ColumnName="Fys" />
+                <ScalarProperty Name="Antal_kunder" ColumnName="Antal_kunder" />
+                <ScalarProperty Name="Snittköp" ColumnName="Snittköp" />
+                <ScalarProperty Name="Marginalkronor" ColumnName="Marginalkronor" />
+                <ScalarProperty Name="Butik_dag" ColumnName="Butik_dag" />
+                <ScalarProperty Name="Koncept_dag" ColumnName="Koncept_dag" />
+                <ScalarProperty Name="Butik" ColumnName="Butik" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FrameLevel" TypeName="DisplayMonkey.Model.FrameLevel" StoreEntitySet="FrameLevel">
+            <EndProperty Name="Level">
+              <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+            </EndProperty>
+            <EndProperty Name="Frame">
+              <ScalarProperty Name="FrameId" ColumnName="FrameId" />
+            </EndProperty>
+          </AssociationSetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

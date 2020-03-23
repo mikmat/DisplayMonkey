@@ -1,23 +1,23 @@
-﻿@model DisplayMonkey.Models.LocationSelector
+﻿@model DisplayMonkey.Models.ScheduleSelector
 
 @{
-    ViewBag.Title = Resources.RemoveLocation;
+    ViewBag.Title = Resources.RemoveSchedule;
 }
 
 <h2>@ViewBag.Title</h2>
 
-<h3>@Resources.AreYouSureYouWantToRemoveLocationFromThisFrame</h3>
+<h3>@Resources.AreYouSureYouWantToRemoveScheduleFromThisFrame</h3>
 <fieldset>
     <legend>@Resources.Frame</legend>
 
     @Html.HiddenFor(m => m.FrameId)
-    @Html.HiddenFor(m => m.LocationId)
+    @Html.HiddenFor(m => m.ScheduleId)
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.LocationName)
+         @Html.DisplayNameFor(model => model.ScheduleName)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.LocationName)
+        @Html.DisplayFor(model => model.ScheduleName)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

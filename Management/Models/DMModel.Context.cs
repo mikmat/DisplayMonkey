@@ -38,5 +38,11 @@ namespace DisplayMonkey.Models
         public DbSet<Setting> Settings { get; set; }
         public DbSet<AzureAccount> AzureAccounts { get; set; }
         public DbSet<OauthAccount> OauthAccounts { get; set; }
+        public DbSet<CoopStore> CoopStores { get; set; }
+        public DbSet<RaspberryList> RaspberryLists { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<CoopSale> CoopSales { get; set; }
     }
 }

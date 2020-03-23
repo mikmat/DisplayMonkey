@@ -9,8 +9,9 @@
 @Html.Partial("_Details")
 
 <p>
-    @Html.ActionLink(Resources.Edit, "Edit", "Frame", new { id=Model.FrameId }, null) |
+    @Html.ActionLink(Resources.Edit, "Edit", "Frame", new { id = Model.FrameId }, null) |
     @Html.ActionLink(Resources.ViewFrames, "Index", "Frame")
 </p>
 
 @Html.Partial("_frameLocations", Model as Frame)
+@Html.Partial("_frameSchedules", Model as Frame)

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bc7e2af02eae42709a76a4c4f1b15942" Name="Diagram1" ZoomLevel="86">
+      <Diagram DiagramId="bc7e2af02eae42709a76a4c4f1b15942" Name="Diagram1" ZoomLevel="88">
         <EntityTypeShape EntityType="DisplayMonkey.Model.Canvas" Width="1.5" PointX="4.625" PointY="13.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DisplayMonkey.Model.Clock" Width="1.5" PointX="13.5" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DisplayMonkey.Model.Content" Width="1.5" PointX="4.625" PointY="17.625" IsExpanded="true" />
@@ -48,9 +48,9 @@
         <InheritanceConnector EntityType="DisplayMonkey.Model.News" />
         <InheritanceConnector EntityType="DisplayMonkey.Model.Outlook" />
         <InheritanceConnector EntityType="DisplayMonkey.Model.Html" ManuallyRouted="true" >
-          <ConnectorPoint PointX="11.375" PointY="14.571432291666666" />
-          <ConnectorPoint PointX="11.375" PointY="18.131805826822919" />
-          <ConnectorPoint PointX="13.5" PointY="18.131805826822919" />
+          <ConnectorPoint PointX="11.375" PointY="15.40330078125" />
+          <ConnectorPoint PointX="11.375" PointY="18.201691080729169" />
+          <ConnectorPoint PointX="13.5" PointY="18.201691080729169" />
         </InheritanceConnector>
         <InheritanceConnector EntityType="DisplayMonkey.Model.Memo" />
         <InheritanceConnector EntityType="DisplayMonkey.Model.Clock" />
@@ -63,6 +63,15 @@
         <InheritanceConnector EntityType="DisplayMonkey.Model.FullScreen" />
         <EntityTypeShape EntityType="DisplayMonkey.Model.OauthAccount" Width="1.5" PointX="3.25" PointY="21" />
         <AssociationConnector Association="DisplayMonkey.Model.FK_Weather_OauthAccount" />
+        <EntityTypeShape EntityType="DisplayMonkey.Model.CoopStore" Width="1.5" PointX="2.875" PointY="6.375" />
+        <EntityTypeShape EntityType="DisplayMonkey.Model.RaspberryList" Width="1.5" PointX="0.5" PointY="8.625" />
+        <EntityTypeShape EntityType="DisplayMonkey.Model.Schedule" Width="1.5" PointX="15.75" PointY="9.625" />
+        <AssociationConnector Association="DisplayMonkey.Model.FK_CoopStores_Location" />
+        <AssociationConnector Association="DisplayMonkey.Model.FrameSchedule" />
+        <EntityTypeShape EntityType="DisplayMonkey.Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DisplayMonkey.Model.User" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DisplayMonkey.Model.CoopSale" Width="1.5" PointX="4.75" PointY="0.75" />
+        <AssociationConnector Association="DisplayMonkey.Model.FrameLevel" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
