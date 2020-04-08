@@ -304,7 +304,7 @@ namespace DisplayMonkey
                                 " SUM(sum_budget_dag_koncept) AS sum_budget_dag_koncept, " +
                                 " SUM(Antalkunder_jmf) AS Antalkunder_jmf, " +
                                 " SUM(Fys_jmf) AS Fys_jmf, " +
-                                " case when koncept in ('01', 'CE', 'CF', 'CK', 'CN') then 'COOP' else koncept end as koncept " +
+                                " case when koncept NOT IN ('GK', 'PK') then 'COOP' else koncept end as koncept  " +
                                 " FROM[BPMSRV2].[KV_BPW_Prod_Catalog].[dbo].[COOP_Direkt_allt_arkiv] cda " +
                                 " WHERE cda.datum = @datum " +
                                 " group by  koncept,datum " +
@@ -364,7 +364,7 @@ namespace DisplayMonkey
                                 outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">local_grocery_store</em>";
                                 outstring += "</td> " +
                                 "<td style=\"width: 450px; height: 23px;\">" +
-                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">Kedja</span>" +
+                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">&nbsp;</span>" +
                                 "</td>  " +
                                 "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
                                 if (Convert.ToDecimal(Butik_dag) < 100)

@@ -23,6 +23,12 @@ using System.Threading.Tasks;
 
 namespace DisplayMonkey
 {
+
+    public class FrameIdNo
+    {
+        public int FrameId { get; set; }
+        public long CurrFrame { get; set; }    
+    }
     public class Frame
 	{
         public int FrameId { get; protected set; }
@@ -36,7 +42,10 @@ namespace DisplayMonkey
         public string TemplateName { get; private set; }
         public string Html { get; private set; }
         public UInt64 Version { get; private set; }
-        
+        //MM
+        public long currframe { get; private set; } 
+        public int maxframe { get; private set; }
+
         public virtual string Hash 
         {
             // this is used to trick browser built-in caching 
@@ -77,6 +86,8 @@ namespace DisplayMonkey
             this.FrameType = rhs.FrameType;
             this.CacheInterval = rhs.CacheInterval;
             this.Version = rhs.Version;
+            this.currframe = rhs.currframe;
+            this.maxframe = rhs.maxframe;
         }
 
         private void _initfromRow(SqlDataReader dr)
@@ -186,6 +197,39 @@ namespace DisplayMonkey
                 }
             }
 
+            List<FrameIdNo> fids = new List<FrameIdNo>();
+            int fidcount = 0;
+            if (panelId == 2)
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_FrameCount"))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@panelId", SqlDbType.Int).Value = panelId;
+                    cmd.Parameters.Add("@displayId", SqlDbType.Int).Value = displayId;
+                    cmd.Parameters.Add("@lastFrameId", SqlDbType.Int).Value = 0;
+
+
+                    await cmd.ExecuteReaderExtAsync((dr) =>
+                    {
+
+                        while (dr.Read())
+                        {
+                            FrameIdNo fid = new FrameIdNo();
+                            fid.FrameId = dr.IntOrZero("FrameId");
+                            fid.CurrFrame = dr.LongOrZero("RowNr");
+
+                            fids.Add(fid);
+                            fidcount++;
+
+                        }
+                        return false;
+                    });
+                }
+
+                nci.maxframe = fidcount;
+                nci.currframe = fids.Where(f => f.FrameId == nci.FrameId).Select(t => t.CurrFrame).FirstOrDefault();
+            }
+            Console.WriteLine("curr/max: " + nci.currframe.ToString() + "/" + nci.maxframe.ToString());
             return nci;
 		}
 

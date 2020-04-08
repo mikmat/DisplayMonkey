@@ -24,6 +24,7 @@ namespace DisplayMonkey
         public string Subject { get; private set; }
         public string Body { get; private set; }
         public string DateCreated2 { get; private set; }
+        public string pageinfo { get; set;  }
 
         public Memo(Frame frame)
             : base(frame)
@@ -33,6 +34,7 @@ namespace DisplayMonkey
 
         private void _init()
         {
+            
             using (SqlCommand cmd = new SqlCommand()
             {
                 CommandType = CommandType.Text,

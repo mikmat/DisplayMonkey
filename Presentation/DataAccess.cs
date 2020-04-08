@@ -201,6 +201,12 @@ namespace DisplayMonkey
             return DbValueOrDefault<int>(reader[column], 0);
         }
 
+        public static long LongOrZero(this SqlDataReader reader, string column)
+        {
+            return DbValueOrDefault<long>(reader[column], 0);
+        }
+
+
         public static int IntOrDefault(this SqlDataReader reader, string column, int _default)
         {
             return DbValueOrDefault<int>(reader[column], _default);
