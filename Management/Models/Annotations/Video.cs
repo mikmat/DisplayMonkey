@@ -23,7 +23,7 @@ namespace DisplayMonkey.Models
         protected override void init(DisplayMonkeyEntities _db)
         {
             base.init(_db);
-
+            _db.Database.CommandTimeout = 240;
             this.CacheInterval = Setting.GetDefaultCacheInterval(_db, this.FrameType);
 
             this.PlayMuted = true;

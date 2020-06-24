@@ -20,6 +20,8 @@ namespace DisplayMonkey.Models
         public DateTime firstseen { get; set; }
         [DisplayName("Ignorera")]
         public Int32 disabled { get; set; }
+        [DisplayName("Ombootad")]
+        public DateTime rebooted { get; set; }
     }
 
 }

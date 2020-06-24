@@ -32,6 +32,9 @@
             @Html.DisplayNameFor(model => model.firstseen)
         </th>
         <th class="nw">
+            @Html.DisplayNameFor(model => model.rebooted)
+        </th>
+        <th class="nw">
             @Html.DisplayNameFor(model => model.disabled)
         </th>
         <th></th>
@@ -41,57 +44,63 @@
     {
         if (item.updated < DateTime.Now.AddMinutes(-30))
         {
-            <tr class="raspbad">
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.mac)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.hostname)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.ip)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.updated)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.temperature)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.firstseen)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.disabled)
-                </td>
+<tr class="raspbad">
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.mac)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.hostname)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.ip)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.updated)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.temperature)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.firstseen)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.rebooted)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.disabled)
+    </td>
 
-            </tr>
+</tr>
         }
         else
         {
-            <tr>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.mac)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.hostname)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.ip)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.updated)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.temperature)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.firstseen)
-                </td>
-                <td class="nw">
-                    @Html.DisplayFor(modelItem => item.disabled)
-                </td>
+<tr>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.mac)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.hostname)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.ip)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.updated)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.temperature)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.firstseen)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.rebooted)
+    </td>
+    <td class="nw">
+        @Html.DisplayFor(modelItem => item.disabled)
+    </td>
 
-            </tr>
+</tr>
         }
     }
 

@@ -21,6 +21,7 @@ namespace DisplayMonkey.Controllers
         public decimal temperature { get; private set; }
         public DateTime firstseen { get; private set; }
         public Int32 disabled { get; private set; }
+        public DateTime rebooted { get; private set; }
 
         public RaspberryController()
         {
@@ -32,10 +33,11 @@ namespace DisplayMonkey.Controllers
             List<Raspberry> raspberries = new List<Raspberry>();
             try
             {
+                Response.AddHeader("Refresh", "60");
                 using (SqlCommand dispcmd = new SqlCommand()
                 {
                     CommandType = CommandType.Text,
-                    CommandText = "SELECT * FROM RaspberryList ORDER BY updated, hostname",
+                    CommandText = "SELECT * FROM RaspberryList where disabled = 0 ORDER BY updated, hostname",
 
                 })
                 {
@@ -49,6 +51,7 @@ namespace DisplayMonkey.Controllers
                         temperature = dispdr.DecimalOrZero("temperature");
                         firstseen = dispdr.DateTimeOrBlank("firstseen");
                         disabled = dispdr.IntOrZero("disabled");
+                        rebooted = dispdr.DateTimeOrBlank("uptime");
 
                         Raspberry rasp = new Raspberry
                         {
@@ -58,7 +61,8 @@ namespace DisplayMonkey.Controllers
                             updated = updated,
                             temperature = temperature,
                             firstseen = firstseen,
-                            disabled = disabled
+                            disabled = disabled, 
+                            rebooted = rebooted
                         };
 
                         raspberries.Add(rasp);
@@ -71,6 +75,7 @@ namespace DisplayMonkey.Controllers
                             temperature = dispdr.DecimalOrZero("temperature");
                             firstseen = dispdr.DateTimeOrBlank("firstseen");
                             disabled = dispdr.IntOrZero("disabled");
+                            rebooted = dispdr.DateTimeOrBlank("uptime");
 
                             rasp = new Raspberry
                             {
@@ -80,7 +85,8 @@ namespace DisplayMonkey.Controllers
                                 updated = updated,
                                 temperature = temperature,
                                 firstseen = firstseen,
-                                disabled = disabled
+                                disabled = disabled,
+                                rebooted = rebooted
                             };
 
                             raspberries.Add(rasp);
@@ -90,8 +96,6 @@ namespace DisplayMonkey.Controllers
                     });
                     
                 }
-
-              //  LevelName = LevelName.Split('-')[0].Trim();
 
                 return View(raspberries);
             }

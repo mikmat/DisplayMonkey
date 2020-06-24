@@ -14,6 +14,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using DisplayMonkey.Models;
 using Microsoft.AspNet.Identity;
@@ -26,6 +27,7 @@ using System.Data.Entity.Validation;
 using System.Text;
 using System.Threading.Tasks;
 using DisplayMonkey.Language;
+using file;
 
 namespace DisplayMonkey.Controllers
 {
@@ -160,6 +162,49 @@ namespace DisplayMonkey.Controllers
             }
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult UploadVideo(IEnumerable<HttpPostedFileBase> files)
+        {
+            //string address = "";
+            string imageRelativePath = "";
+            bool hasFiles = false, addedFiles = false;
+            foreach (HttpPostedFileBase file in files)
+            {
+                if (file != null && file.ContentLength > 0)
+                {
+                    string ext = Path.GetExtension(file.FileName).Replace(".", "").ToUpper();
+                    bool isPicture = Picture.SupportedFormats.Contains(ext);
+                    bool isVideo = Video.SupportedFormats.Contains(ext);
+
+                    if (isPicture || isVideo)
+                    {
+                        string uploadsPath = HostingEnvironment.MapPath($"/uploads");
+                        DirectoryInfo uploadsDir = new DirectoryInfo(uploadsPath);
+                        if (!uploadsDir.Exists)
+                            uploadsDir.Create();
+
+                        imageRelativePath = $"/uploads/{file.FileName}";
+                        string imageAbsPath = HostingEnvironment.MapPath(imageRelativePath);
+                        string tjo = HostingEnvironment.ApplicationVirtualPath;
+                        byte[] imageBytes = file.InputStream.ReadToEnd();
+                        System.IO.File.WriteAllBytes(imageAbsPath, imageBytes);
+
+                        HttpRequestBase request = HttpContext.Request;
+                        //address = string.Format("{0}://{1}", request.Url.Scheme, request.Url.Authority);
+
+                        addedFiles = true;
+                    }
+                    hasFiles = true;
+                }
+                if (addedFiles)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return View();
+
         }
 
         //

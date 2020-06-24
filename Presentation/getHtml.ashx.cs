@@ -131,6 +131,15 @@ namespace DisplayMonkey
                                 labelclass = "omslabel_green";
                             }
 
+                            if (Butik_dag == "0,00")
+                            {
+                                outstring = "<td rowspan=\"4\" colspan=\"7\">";
+                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">chat</em>";
+                                outstring += "&nbsp;<span style=\"font-family: CoopNew; font-size: 18pt;\">Hoppsan! Våra datasystem behöver räkna lite till. -Omsättningen visas här igen när det de har räknat klart.  </span>";
+                                outstring += "</td>";
+                            }
+                            else
+                            {
 
                                 outstring = "<div id=\"omsattning2\" style=\"margin-top -10px; margin-left: 10px;\">  " +
                             "<table style=\"border-collapse: collapse; height: 90px; width: 1800px;\" border=\"0\">  " +
@@ -160,95 +169,99 @@ namespace DisplayMonkey
                             outstring += "</td> " +
                             "<td style=\"width: 450px; height: 23px;\">" +
                             "<span style=\"font-family: CoopNew; font-size: 26pt;\">Kedja</span>" +
-                            "</td>  " +
-                            "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
-                            if (Convert.ToDecimal(Butik_dag) < 100)
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
-                            }
-                            else if (Convert.ToDecimal(Butik_dag) > 100)
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
-                            }
-                            else
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
-                            }
-                            outstring += "</td>  " +
-                            "<td style=\"width: 450px; height: 23px;\">" +
-                            "<span style=\"font-family: CoopNew; font-size: 26pt;\">Butik</span>" +
-                            "</td> " +
-                            "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
+                            "</td>  ";
 
-                            if (Convert.ToDecimal(Marginalkronor) < 100)
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
+
+                            
+                                outstring += "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
+                                if (Convert.ToDecimal(Butik_dag) < 100)
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
+                                }
+                                else if (Convert.ToDecimal(Butik_dag) > 100)
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
+                                }
+                                else
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
+                                }
+                                outstring += "</td>  " +
+                                "<td style=\"width: 450px; height: 23px;\">" +
+                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">Butik</span>" +
+                                "</td> " +
+                                "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
+
+                                if (Convert.ToDecimal(Marginalkronor) < 100)
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
+                                }
+                                else if (Convert.ToDecimal(Marginalkronor) > 100)
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
+                                }
+                                else
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
+                                }
+                                outstring += "</td>  " +
+                                "<td style=\"width: 450px; height: 23px;\">" +
+                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">Marginalkronor</span>" +
+                                "</td> " +
+                                "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
+                                if (Convert.ToDecimal(Antal_kunder) < 100)
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
+                                }
+                                else if (Convert.ToDecimal(Antal_kunder) > 100)
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
+                                }
+                                else
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
+                                }
+                                outstring += "</td>  " +
+                                "<td style=\"width: 550px; height: 23px;\">" +
+                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">Antal kunder</span>" +
+                                "</td> " +
+                                "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
+                                if (Convert.ToDecimal(Fys) > 100)
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
+                                }
+                                else if (Convert.ToDecimal(Fys) < 100)
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
+                                }
+                                else
+                                {
+                                    outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
+                                }
+                                outstring +=
+                                "</td>  " +
+                                "<td style=\"width: 450px; height: 23px;\">" +
+                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">Fys</span>" +
+                                "</td>  " +
+                                "</tr>  " +
+                                "<tr style=\"height: 23px;\">  " +
+                                "<td>" +
+                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">" + Koncept_dag + "</span>" +
+                                "</td>  " +
+                                "<td style=\"height: 23px;\">" +
+                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">" + Butik_dag + "</span>" +
+                                "</td>  " +
+                                "<td style=\"height: 23px;\">" +
+                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">" + Marginalkronor + "</span>" +
+                                "</td>  " +
+                                "<td style=\"height: 23px;\">" +
+                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">" + Antal_kunder + "</span>" +
+                                "</td>  " +
+                                "<td style=\"height: 23px;\">" +
+                                "<span style=\"font-family: CoopNew; font-size: 26pt;\">" + Fys + "</span>" +
+                                "</td>";
                             }
-                            else if (Convert.ToDecimal(Marginalkronor) > 100)
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
-                            }
-                            else
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
-                            }
-                            outstring += "</td>  " +
-                            "<td style=\"width: 450px; height: 23px;\">" +
-                            "<span style=\"font-family: CoopNew; font-size: 26pt;\">Marginalkronor</span>" +
-                            "</td> " +
-                            "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
-                            if (Convert.ToDecimal(Antal_kunder) < 100)
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
-                            }
-                            else if (Convert.ToDecimal(Antal_kunder) > 100)
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
-                            }
-                            else
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
-                            }
-                            outstring += "</td>  " +
-                            "<td style=\"width: 550px; height: 23px;\">" +
-                            "<span style=\"font-family: CoopNew; font-size: 26pt;\">Antal kunder</span>" +
-                            "</td> " +
-                            "<td style=\"width: 60px; height: 46px;\" rowspan=\"2\">";
-                            if (Convert.ToDecimal(Fys) > 100)
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #e74c3c;\">sentiment_very_dissatisfied</em>";
-                            }
-                            else if (Convert.ToDecimal(Fys) < 100)
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #28b463;\">sentiment_very_satisfied</em>";
-                            }
-                            else
-                            {
-                                outstring += "<em class=\"material-icons\" style=\"font-size: 85px; color: #f1c40f;\">sentiment_neutral</em>";
-                            }
-                            outstring +=
-                            "</td>  " +
-                            "<td style=\"width: 450px; height: 23px;\">" +
-                            "<span style=\"font-family: CoopNew; font-size: 26pt;\">Fys</span>" +
-                            "</td>  " +
-                            "</tr>  " +
-                            "<tr style=\"height: 23px;\">  " +
-                            "<td>" +
-                            "<span style=\"font-family: CoopNew; font-size: 26pt;\">" + Koncept_dag + "</span>" +
-                            "</td>  " +
-                            "<td style=\"height: 23px;\">" +
-                            "<span style=\"font-family: CoopNew; font-size: 26pt;\">" + Butik_dag + "</span>" +
-                            "</td>  " +
-                            "<td style=\"height: 23px;\">" +
-                            "<span style=\"font-family: CoopNew; font-size: 26pt;\">" + Marginalkronor + "</span>" +
-                            "</td>  " +
-                            "<td style=\"height: 23px;\">" +
-                            "<span style=\"font-family: CoopNew; font-size: 26pt;\">" + Antal_kunder + "</span>" +
-                            "</td>  " +
-                            "<td style=\"height: 23px;\">" +
-                            "<span style=\"font-family: CoopNew; font-size: 26pt;\">" + Fys + "</span>" +
-                            "</td>" +
-                            "</tr>" +
+                            outstring += "</tr>" +
                             "</tbody>" +
                             "</table>" +
                             "</div>";

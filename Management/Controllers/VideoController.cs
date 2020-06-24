@@ -32,6 +32,8 @@ namespace DisplayMonkey.Controllers
 
         public ActionResult Details(int id = 0)
         {
+
+            db.Database.CommandTimeout = 120;
             Video video = db.Frames.Find(id) as Video;
             if (video == null)
             {

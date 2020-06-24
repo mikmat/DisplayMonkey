@@ -60,17 +60,18 @@ namespace DisplayMonkey.Controllers
 
         // POST: Templog/Edit/5
         [HttpPost]
-        public void Edit(string ip, string hostname, string temperature, string mac)
+        public void Edit(string ip, string hostname, string temperature, string mac, DateTime uptime)
         {
             try
             {
                 try
                 {
+                    if (uptime == null)
+                        uptime = DateTime.Now;
                     using (SqlCommand updatecmd = new SqlCommand()
                     {
                         CommandType = CommandType.Text,
-                        CommandText = "EXEC [SP_UpdatePiStatus] '"+mac+"', '"+hostname+ "','" + ip + "', '" + temperature+"'"
-                        
+                        CommandText = "EXEC [SP_UpdatePiStatus] '"+mac+"', '"+hostname+ "','" + ip + "', '" + temperature+"','"+uptime+"'"
 
                     })
                     {
