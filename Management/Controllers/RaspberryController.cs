@@ -37,7 +37,7 @@ namespace DisplayMonkey.Controllers
                 using (SqlCommand dispcmd = new SqlCommand()
                 {
                     CommandType = CommandType.Text,
-                    CommandText = "SELECT * FROM RaspberryList where disabled = 0 ORDER BY updated, hostname",
+                    CommandText = "SELECT * FROM RaspberryList where disabled = 0 AND hostname like 'mtv%'  ORDER BY updated, hostname",
 
                 })
                 {
@@ -108,7 +108,89 @@ namespace DisplayMonkey.Controllers
             }
         }
 
-      // GET: Raspberry/Details/5
+        public ActionResult Queue()
+        {
+            List<Raspberry> raspberries = new List<Raspberry>();
+            try
+            {
+                Response.AddHeader("Refresh", "60");
+                string sqlstring = "SELECT * FROM RaspberryList where disabled = 0 AND hostname like 'queue%' ORDER BY updated, hostname";
+                
+                using (SqlCommand dispcmd = new SqlCommand()
+                {
+                    CommandType = CommandType.Text,
+                    CommandText = sqlstring,
+
+                })
+                {
+
+                    dispcmd.ExecuteReaderExt((dispdr) =>
+                    {
+                        mac = dispdr.StringOrBlank("mac");
+                        hostname = dispdr.StringOrBlank("hostname");
+                        ip = dispdr.StringOrBlank("ip");
+                        updated = dispdr.DateTimeOrBlank("updated");
+                        temperature = dispdr.DecimalOrZero("temperature");
+                        firstseen = dispdr.DateTimeOrBlank("firstseen");
+                        disabled = dispdr.IntOrZero("disabled");
+                        rebooted = dispdr.DateTimeOrBlank("uptime");
+
+                        Raspberry rasp = new Raspberry
+                        {
+                            mac = mac,
+                            hostname = hostname,
+                            ip = ip,
+                            updated = updated,
+                            temperature = temperature,
+                            firstseen = firstseen,
+                            disabled = disabled,
+                            rebooted = rebooted
+                        };
+
+                        raspberries.Add(rasp);
+                        while (dispdr.Read())
+                        {
+                            mac = dispdr.StringOrBlank("mac");
+                            hostname = dispdr.StringOrBlank("hostname");
+                            ip = dispdr.StringOrBlank("ip");
+                            updated = dispdr.DateTimeOrBlank("updated");
+                            temperature = dispdr.DecimalOrZero("temperature");
+                            firstseen = dispdr.DateTimeOrBlank("firstseen");
+                            disabled = dispdr.IntOrZero("disabled");
+                            rebooted = dispdr.DateTimeOrBlank("uptime");
+
+                            rasp = new Raspberry
+                            {
+                                mac = mac,
+                                hostname = hostname,
+                                ip = ip,
+                                updated = updated,
+                                temperature = temperature,
+                                firstseen = firstseen,
+                                disabled = disabled,
+                                rebooted = rebooted
+                            };
+
+                            raspberries.Add(rasp);
+                        }
+                        return true;
+
+                    });
+
+                }
+
+                return View(raspberries);
+            }
+
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return View();
+            }
+        }
+
+        // GET: Raspberry/Details/5
         public ActionResult Details(int id)
         { 
             return View();

@@ -355,7 +355,7 @@ namespace DisplayMonkey.Controllers
             Content content = db.Contents.Find(contentId);
             video.Contents.Remove(content);
             db.SaveChanges();
-            return RedirectToAction("Details", new { id = id });
+            return RedirectToAction("Details", new { id });
         }
 
         //

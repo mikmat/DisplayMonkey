@@ -143,8 +143,8 @@ namespace DisplayMonkey.Controllers
                 .Where(t => t.FrameType == _frameType)
                 .Select(t => new
                 {
-                    TemplateId = t.TemplateId,
-                    Name = t.Name
+                    t.TemplateId,
+                    t.Name
                 })
                 .OrderBy(t => t.Name)
                 .ToList()

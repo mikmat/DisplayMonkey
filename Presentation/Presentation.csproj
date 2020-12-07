@@ -468,7 +468,8 @@
     <Content Include="getAzureToken.ashx" />
     <Content Include="ApplicationInsights.config" />
     <Content Include="Connected Services\Application Insights\ConnectedService.json" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\Coop Tabergsdalen.pubxml" />
+    <None Include="Properties\PublishProfiles\Coop Värmland.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\Release.pubxml" />
     <None Include="Properties\Settings.settings">

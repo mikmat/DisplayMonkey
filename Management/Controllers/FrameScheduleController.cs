@@ -272,9 +272,9 @@ namespace DisplayMonkey.Controllers
                     canvasId = panel.CanvasId;
                 
                 return RedirectToAction("ForFrameType", new { 
-                    canvasId = canvasId, 
-                    panelId = panelId, 
-                    frameType = frameType
+                    canvasId, 
+                    panelId, 
+                    frameType
                 });
             }
 
@@ -305,7 +305,7 @@ namespace DisplayMonkey.Controllers
             { 
                 CanvasId = canvasId,
                 PanelId = panelId,
-                FrameType = frameType.HasValue ? frameType.Value : 0,
+                FrameType = frameType ?? 0,
             };
 
             FillCanvasesSelectList(canvasId);
@@ -359,7 +359,7 @@ namespace DisplayMonkey.Controllers
                 return View("Missing", new MissingItem(id));
             }
 
-            return RedirectToAction("Details", frame.FrameType.ToString(), new { id = id });
+            return RedirectToAction("Details", frame.FrameType.ToString(), new { id });
         }
 
         //
@@ -379,7 +379,7 @@ namespace DisplayMonkey.Controllers
                 return View("Missing", new MissingItem(id));
             }
 
-            return RedirectToAction("Edit", frame.FrameType.ToString(), new { id = id });
+            return RedirectToAction("Edit", frame.FrameType.ToString(), new { id });
         }
 
         //
@@ -399,7 +399,7 @@ namespace DisplayMonkey.Controllers
                 return View("Missing", new MissingItem(id));
             }
 
-            return RedirectToAction("Delete", frame.FrameType.ToString(), new { id = id });
+            return RedirectToAction("Delete", frame.FrameType.ToString(), new { id });
         }
 
         //
@@ -425,7 +425,7 @@ namespace DisplayMonkey.Controllers
                     .Include(l => l.Level)
                     .Select(l => new
                     {
-                        LocationId = l.LocationId,
+                        l.LocationId,
                         Name = l.Level.Name + " : " + l.Name
                     })
                     .OrderBy(l => l.Name)
